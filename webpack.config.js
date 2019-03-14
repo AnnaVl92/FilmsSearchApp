@@ -9,7 +9,7 @@ module.exports = {
 	
 	output: {
 		filename: 'bundle.js',
-		path: path.join(__dirname, 'dist'),
+		path: path.join(__dirname, 'src'),
 	},
 	
 	resolve: {
@@ -25,7 +25,11 @@ module.exports = {
 		]
 	},
 	
-	plugins: [new HtmlWebpackPlugin()],
+	plugins: [new HtmlWebpackPlugin(
+		{
+			template: "./index.html"
+		}
+	)],
 	
 	watch: false
 };
