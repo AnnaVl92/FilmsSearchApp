@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import helloWorld from './helloWorld.jsx';
+import filmTitle from './filmTitle';
 
-const element = React.createElement(
+const title = React.createElement(
 	"h1",
 	{className: "title"},
 	"Hello World!"
 );
 
 ReactDOM.render(
-	element,
+	title,
 	document.getElementById('root')
 );
