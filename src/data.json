@@ -1,0 +1,38 @@
+{
+	"films": [{
+		"id": 1,
+		"title":"Kill Bill 2",
+		"img":"https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736",
+		"releaseDate": 2004,
+		"genre": "Action & Adventure",
+		"director": "Quentin Tarantino",
+		"rating": 8
+	},
+	{
+		"id": 2,
+		"title":"Kill Bill 1",
+		"img":"https://vignette.wikia.nocookie.net/immwdb/images/e/e4/Kill-bill-vol-1.jpg/revision/latest?cb=20150116205604",
+		"releaseDate": 2003,
+		"genre": "Action & Adventure",
+		"director": "Quentin Tarantino",
+		"rating": 8
+	},
+	{
+		"id": 3,
+		"title":"Pulp Fiction",
+		"img":"http://barkerhost.com/wp-content/uploads/sites/4/2015/11/dM2w364MScsjFf8pfMbaWUcWrR-0.jpg",
+		"releaseDate": 1994,
+		"genre": "Oscar-winning Movies",
+		"director": "Quentin Tarantino",
+		"rating": 8
+	},
+	{
+		"id": 4,
+		"title":"From Dusk till Dawn",
+		"img":"http://image.tmdb.org/t/p/original/8nq0sMakxz4O9SifQJEspMzrdej.jpg",
+		"releaseDate": 1996,
+		"genre": "Mystery",
+		"director": "Robert Rodriguez",
+		"rating": 7
+	}]
+}

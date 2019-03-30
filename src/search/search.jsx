@@ -1,24 +1,89 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import data from '../data.json';
+import FilmsList from '../films/filmsList.jsx';
 
 class Search extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			searchValue: '',
+			films: [],
+			filteredFilms: [],
+			searchFilterValue: 'title'
+		};
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.changeSearchFilter = this.changeSearchFilter.bind(this);
+	}
+
+	componentDidMount() {
+		this.setState({
+			films: data.films,
+			filteredFilms: data.films
+		});
+	}
+
+	changeSearchFilter(e) {
+		this.setState({searchFilterValue: e.target.value});
+	}
+
+	handleChange(e) {
+		this.setState({searchValue: e.target.value});
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		var searchValue = this.state.searchValue,
+			films = this.state.films,
+			searchFilterValue = this.state.searchFilterValue;
+		this.setState({
+			filteredFilms : films.filter(function(i) {
+				if (searchFilterValue == 'title'){
+					return  i.title && i.title.toLowerCase().match(searchValue);
+				} else if (searchFilterValue == 'genre'){
+					return  i.genre && i.genre.toLowerCase().match(searchValue);
+				}
+	    	})
+    	});
+		return false;
+	}
+
 	render() {
 		return (
-			<form>
-				<div className="form-group">
-					<label>
-						Find Your Movie
-						<input type="text" className="form-control" />
-					</label>
-				</div>
-				<div className="form-group">
-					SEARCH BY
-					<button className="btn btn-primary">TITLE</button>
-					<button className="btn btn-info">GENRE</button>
-				</div>
-				<button type="submit" className="btn btn-primary">Search</button>
-				<div className="search-results">7 movies found</div>
-			</form>
+			<React.Fragment>
+				<form onSubmit={this.handleSubmit}>
+					<div className="form-group row">
+						<label className="col-lg-10">
+							Find Your Movie
+							<input type="text" value={this.state.searchValue} onChange={this.handleChange} className="form-control" />
+						</label>
+						<div className="col-lg-2">
+							<button type="submit" className="search-button btn btn-primary">Search</button>
+						</div>
+					</div>
+					<div className="d-flex justify-content-between">
+						<div className="search-filter d-flex justify-content-between align-items-center form-group">
+							SEARCH BY
+							<div className="form-check">
+								<input className="form-check-input" id="searchTitle" type="radio" value="title" name="searchFilter" defaultChecked onChange={this.changeSearchFilter} />
+								<label className="form-check-label" htmlFor="searchTitle">
+									TITLE
+								</label>
+							</div>
+							<div className="form-check">
+								<input className="form-check-input" id="searchGenre" type="radio" value="genre" name="searchFilter" onChange={this.changeSearchFilter} />
+								<label className="form-check-label" htmlFor="searchGenre">
+									GENRE
+								</label>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div className="results">{this.state.filteredFilms.length} movies found</div>
+				<FilmsList films={this.state.filteredFilms} />
+			</React.Fragment>
 		);
 	}
 }
