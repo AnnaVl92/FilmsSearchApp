@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import css from './app.css';
 import Search from './search/search.jsx';
 // import FilmPage from './filmPage/filmPage.jsx';
+import ErrorBoundary from './error/errorBoundary.jsx';
 
-const title = React.createElement(
-	"h1",
-	{className: "title"},
-	"My App"
-);
+class App extends React.Component {
+	render(){
+		return (
+			<ErrorBoundary>
+				<Search />
+			</ErrorBoundary>
+		)
+	}
+}
 
-ReactDOM.render(
-	title,
-	document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -50,7 +50,4 @@ class FilmPage extends React.Component {
 	}
 }
 
-ReactDOM.render(	
-	<FilmPage />,
-	document.getElementById('filmPage')
-);
+export default FilmPage; 

@@ -137,7 +137,4 @@ class Search extends React.Component {
 	}
 }
 
-ReactDOM.render(	
-	<Search />,
-	document.getElementById('search')
-);
+export default Search;
