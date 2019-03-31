@@ -2,7 +2,7 @@
 	width: 100%;
 }
 
-.search-filter{
+.search-filter, .sort{
 	width: 240px;
 }
 
@@ -21,4 +21,16 @@
 .film-img-cnt{
 	max-height: 492px;
 	overflow: hidden;
+}
+
+.film-page-img{
+	width: 100%;
+}
+
+.film-badge,.film-page-duration{
+	margin-left: 15px;
+}
+
+.films-similar-genre{
+	margin: 20px 0;
 }

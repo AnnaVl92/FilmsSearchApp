@@ -10,18 +10,23 @@ class Search extends React.Component {
 			searchValue: '',
 			films: [],
 			filteredFilms: [],
-			searchFilterValue: 'title'
+			searchFilterValue: 'title',
+			sortValue: '',
+			sortedFilms: [],
+			isSelectedFilm: false
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.changeSearchFilter = this.changeSearchFilter.bind(this);
+		this.chooseSort = this.chooseSort.bind(this);
 	}
 
 	componentDidMount() {
 		this.setState({
 			films: data.films,
-			filteredFilms: data.films
+			filteredFilms: data.films,
+			sortedFilms: data.films
 		});
 	}
 
@@ -37,17 +42,46 @@ class Search extends React.Component {
 		e.preventDefault();
 		var searchValue = this.state.searchValue,
 			films = this.state.films,
-			searchFilterValue = this.state.searchFilterValue;
-		this.setState({
-			filteredFilms : films.filter(function(i) {
+			searchFilterValue = this.state.searchFilterValue,
+			filteredFilms = films.filter(function(i) {
 				if (searchFilterValue == 'title'){
 					return  i.title && i.title.toLowerCase().match(searchValue);
 				} else if (searchFilterValue == 'genre'){
 					return  i.genre && i.genre.toLowerCase().match(searchValue);
 				}
-	    	})
+	    	});
+		this.setState({
+			filteredFilms
     	});
+    	this.applySort(filteredFilms,this.state.sortValue);
 		return false;
+	}
+
+	applySort(films,sortValue){
+		this.setState({
+			sortedFilms : films.sort(function (prevFilm, nextFilm) {
+				if (sortValue == "releaseDate"){
+					if (prevFilm.releaseDate > nextFilm.releaseDate) {
+						return 1;
+	 				} else if (prevFilm.releaseDate < nextFilm.releaseDate) {
+						return -1;
+					}
+				} else if (sortValue == "rating"){
+					if (prevFilm.rating > nextFilm.rating) {
+						return 1;
+	 				} else if (prevFilm.rating < nextFilm.rating) {
+						return -1;
+					}
+				}
+				return 0;
+			})
+		})
+	}
+
+	chooseSort(e) {
+		var sortValue = e.target.value;
+		this.setState({sortValue: sortValue});
+		this.applySort(this.state.filteredFilms,sortValue);
 	}
 
 	render() {
@@ -79,10 +113,25 @@ class Search extends React.Component {
 								</label>
 							</div>
 						</div>
+						<div className="sort d-flex align-items-start justify-content-between">
+							Sort by
+							<div className="form-check">
+								<input className="form-check-input" id="sortReleaseDate" type="radio" value="releaseDate" name="sort" onChange={this.chooseSort} />
+								<label className="form-check-label" htmlFor="sortReleaseDate">
+									release date
+								</label>
+							</div>
+							<div className="form-check">
+								<input className="form-check-input" id="sortRating" type="radio" value="rating" name="sort" onChange={this.chooseSort} />
+								<label className="form-check-label" htmlFor="sortRating">
+									rating
+								</label>
+							</div>
+						</div>
 					</div>
 				</form>
 				<div className="results">{this.state.filteredFilms.length} movies found</div>
-				<FilmsList films={this.state.filteredFilms} />
+				<FilmsList films={this.state.sortedFilms} />
 			</React.Fragment>
 		);
 	}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import css from './app.css';
 import Search from './search/search.jsx';
-import Sort from './sort/sort.jsx';
+// import FilmPage from './filmPage/filmPage.jsx';
 
 const title = React.createElement(
 	"h1",

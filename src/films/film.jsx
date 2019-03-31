@@ -10,7 +10,7 @@ function Film (props) {
 					<img className="card-img-top" src={film.img} alt="" />
 				</div>
 				<div className="card-body">
-					<a href="#">{film.name}</a>
+					<h2 className="card-title">{film.title}</h2>
 					<p className="film-year">{film.releaseDate}</p>
 					<p className="film-genre">{film.genre}</p>
 				</div>

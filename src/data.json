@@ -1,30 +1,36 @@
 {
 	"films": [{
 		"id": 1,
-		"title":"Kill Bill 2",
+		"title":"Kill Bill: Volume 2",
 		"img":"https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736",
 		"releaseDate": 2004,
 		"genre": "Action & Adventure",
 		"director": "Quentin Tarantino",
-		"rating": 8
+		"rating": 8,
+		"duration": "2h 17min",
+		"description": "The Bride (Uma Thurman) picks up where she left off in volume one with her quest to finish the hit list she has composed of all of the people who have wronged her, including ex-boyfriend Bill (David Carradine), who tried to have her killed four years ago during her wedding to another man. Leaving several dead in her wake, she eventually tracks down Bill in Mexico. Using skills she has learned during her assassin career, she attempts to finish what she set out to do in the first place"
 	},
 	{
 		"id": 2,
-		"title":"Kill Bill 1",
+		"title":"Kill Bill: Volume 1",
 		"img":"https://vignette.wikia.nocookie.net/immwdb/images/e/e4/Kill-bill-vol-1.jpg/revision/latest?cb=20150116205604",
 		"releaseDate": 2003,
 		"genre": "Action & Adventure",
 		"director": "Quentin Tarantino",
-		"rating": 8
+		"rating": 8,
+		"duration": "1h 51min",
+		"description": "A former assassin, known simply as The Bride (Uma Thurman), wakes from a coma four years after her jealous ex-lover Bill (David Carradine) attempts to murder her on her wedding day. Fueled by an insatiable desire for revenge, she vows to get even with every person who contributed to the loss of her unborn child, her entire wedding party, and four years of her life. After devising a hit list, The Bride sets off on her quest, enduring unspeakable injury and unscrupulous enemies."
 	},
 	{
 		"id": 3,
 		"title":"Pulp Fiction",
 		"img":"http://barkerhost.com/wp-content/uploads/sites/4/2015/11/dM2w364MScsjFf8pfMbaWUcWrR-0.jpg",
 		"releaseDate": 1994,
-		"genre": "Oscar-winning Movies",
+		"genre": "Drama & Crime",
 		"director": "Quentin Tarantino",
-		"rating": 8
+		"rating": 8,
+		"duration": "154 minutes",
+		"description": "Vincent Vega (John Travolta) and Jules Winnfield (Samuel L. Jackson) are hitmen with a penchant for philosophical discussions. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace (Ving Rhames) ; his actress wife, Mia (Uma Thurman) ; struggling boxer Butch Coolidge (Bruce Willis) ; master fixer Winston Wolfe (Harvey Keitel) and a nervous pair of armed robbers, Pumpkin (Tim Roth) and Honey Bunny (Amanda Plummer)."
 	},
 	{
 		"id": 4,
@@ -33,6 +39,8 @@
 		"releaseDate": 1996,
 		"genre": "Mystery",
 		"director": "Robert Rodriguez",
-		"rating": 7
+		"rating": 7,
+		"duration": "1h 48m",
+		"description": "On the run from a bank robbery that left several police officers dead, Seth Gecko (George Clooney) and his paranoid, loose-cannon brother, Richard (Quentin Tarantino), hightail it to the Mexican border. Kidnapping preacher Jacob Fuller (Harvey Keitel) and his kids, the criminals sneak across the border in the family's RV and hole up in a topless bar. Unfortunately, the bar also happens to be home base for a gang of vampires, and the brothers and their hostages have to fight their way out."
 	}]
 }
