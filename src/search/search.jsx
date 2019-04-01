@@ -1,25 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import data from '../data.json';
 import FilmsList from '../films/filmsList.jsx';
 
 class Search extends React.Component {
+	state = {
+		searchValue: '',
+		films: [],
+		filteredFilms: [],
+		searchFilterValue: 'title',
+		sortValue: '',
+		sortedFilms: [],
+		isSelectedFilm: false
+	};
+
 	constructor(props) {
 		super(props);
-		this.state = {
-			searchValue: '',
-			films: [],
-			filteredFilms: [],
-			searchFilterValue: 'title',
-			sortValue: '',
-			sortedFilms: [],
-			isSelectedFilm: false
-		};
 
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.changeSearchFilter = this.changeSearchFilter.bind(this);
-		this.chooseSort = this.chooseSort.bind(this);
+		this.handleChange = ::this.handleChange;
+		this.handleSubmit = ::this.handleSubmit;
+		this.changeSearchFilter = ::this.changeSearchFilter;
+		this.chooseSort = ::this.chooseSort;
+		this.sortFilms = ::this.sortFilms;
 	}
 
 	componentDidMount() {
@@ -59,22 +60,26 @@ class Search extends React.Component {
 
 	applySort(films,sortValue){
 		this.setState({
-			sortedFilms : films.sort(function (prevFilm, nextFilm) {
-				if (sortValue == "releaseDate"){
-					if (prevFilm.releaseDate > nextFilm.releaseDate) {
-						return 1;
-	 				} else if (prevFilm.releaseDate < nextFilm.releaseDate) {
-						return -1;
-					}
-				} else if (sortValue == "rating"){
-					if (prevFilm.rating > nextFilm.rating) {
-						return 1;
-	 				} else if (prevFilm.rating < nextFilm.rating) {
-						return -1;
-					}
+			sortedFilms : this.sortFilms(films, sortValue)
+		})
+	}
+
+	sortFilms(films, sortValue) {
+		return films.sort(function (prevFilm, nextFilm) {
+			if (sortValue == "releaseDate"){
+				if (prevFilm.releaseDate > nextFilm.releaseDate) {
+					return 1;
+ 				} else if (prevFilm.releaseDate < nextFilm.releaseDate) {
+					return -1;
 				}
-				return 0;
-			})
+			} else if (sortValue == "rating"){
+				if (prevFilm.rating > nextFilm.rating) {
+					return 1;
+ 				} else if (prevFilm.rating < nextFilm.rating) {
+					return -1;
+				}
+			}
+			return 0;
 		})
 	}
 
@@ -87,7 +92,7 @@ class Search extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<form onSubmit={this.handleSubmit}>
+				<form className="search" onSubmit={this.handleSubmit}>
 					<div className="form-group row">
 						<label className="col-lg-10">
 							Find Your Movie

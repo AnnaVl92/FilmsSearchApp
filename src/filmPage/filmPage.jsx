@@ -1,16 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import data from '../data.json';
 import FilmsList from '../films/filmsList.jsx';
 
 class FilmPage extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			film: {},
-			similarFilms: data.films
-		};
-	}
+	state = {
+		film: {},
+		similarFilms: data.films
+	};
 
 	componentDidMount() {
 		this.setState({
