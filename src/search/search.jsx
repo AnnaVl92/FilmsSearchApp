@@ -1,6 +1,7 @@
 import React from 'react';
 import data from '../data.json';
 import FilmsList from '../films/filmsList.jsx';
+import Radio from '../radio/radio.jsx';
 
 class Search extends React.Component {
 	state = {
@@ -13,16 +14,6 @@ class Search extends React.Component {
 		isSelectedFilm: false
 	};
 
-	constructor(props) {
-		super(props);
-
-		this.handleChange = ::this.handleChange;
-		this.handleSubmit = ::this.handleSubmit;
-		this.changeSearchFilter = ::this.changeSearchFilter;
-		this.chooseSort = ::this.chooseSort;
-		this.sortFilms = ::this.sortFilms;
-	}
-
 	componentDidMount() {
 		this.setState({
 			films: data.films,
@@ -31,15 +22,15 @@ class Search extends React.Component {
 		});
 	}
 
-	changeSearchFilter(e) {
+	changeSearchFilter = e => {
 		this.setState({searchFilterValue: e.target.value});
 	}
 
-	handleChange(e) {
+	handleChange = e => {
 		this.setState({searchValue: e.target.value});
 	}
 
-	handleSubmit(e) {
+	handleSubmit = e => {
 		e.preventDefault();
 		var searchValue = this.state.searchValue,
 			films = this.state.films,
@@ -64,7 +55,7 @@ class Search extends React.Component {
 		})
 	}
 
-	sortFilms(films, sortValue) {
+	sortFilms = (films, sortValue) => {
 		return films.sort(function (prevFilm, nextFilm) {
 			if (sortValue == "releaseDate"){
 				if (prevFilm.releaseDate > nextFilm.releaseDate) {
@@ -83,7 +74,7 @@ class Search extends React.Component {
 		})
 	}
 
-	chooseSort(e) {
+	chooseSort = e => {
 		var sortValue = e.target.value;
 		this.setState({sortValue: sortValue});
 		this.applySort(this.state.filteredFilms,sortValue);
@@ -105,33 +96,13 @@ class Search extends React.Component {
 					<div className="d-flex justify-content-between">
 						<div className="search-filter d-flex justify-content-between align-items-center form-group">
 							SEARCH BY
-							<div className="form-check">
-								<input className="form-check-input" id="searchTitle" type="radio" value="title" name="searchFilter" defaultChecked onChange={this.changeSearchFilter} />
-								<label className="form-check-label" htmlFor="searchTitle">
-									TITLE
-								</label>
-							</div>
-							<div className="form-check">
-								<input className="form-check-input" id="searchGenre" type="radio" value="genre" name="searchFilter" onChange={this.changeSearchFilter} />
-								<label className="form-check-label" htmlFor="searchGenre">
-									GENRE
-								</label>
-							</div>
+							<Radio id="searchTitle" name="searchFilter" value="title" onChange={this.changeSearchFilter} labelText="TITLE" isDefaultChecked />
+							<Radio id="searchGenre" name="searchFilter" value="genre" onChange={this.changeSearchFilter} labelText="GENRE" />
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
 							Sort by
-							<div className="form-check">
-								<input className="form-check-input" id="sortReleaseDate" type="radio" value="releaseDate" name="sort" onChange={this.chooseSort} />
-								<label className="form-check-label" htmlFor="sortReleaseDate">
-									release date
-								</label>
-							</div>
-							<div className="form-check">
-								<input className="form-check-input" id="sortRating" type="radio" value="rating" name="sort" onChange={this.chooseSort} />
-								<label className="form-check-label" htmlFor="sortRating">
-									rating
-								</label>
-							</div>
+							<Radio id="sortReleaseDate" name="sort" value="releaseDate" onChange={this.chooseSort} labelText="release date" />
+							<Radio id="sortRating" name="sort" value="rating" onChange={this.chooseSort} labelText="rating" />
 						</div>
 					</div>
 				</form>
