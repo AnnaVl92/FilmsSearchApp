@@ -2,9 +2,9 @@ import React from 'react';
 
 function NoFilmsFound () {
 	return (
-		<React.Fragment>
+		<div>
 			No Films Found
-		</React.Fragment>
+		</div>
 	);
 }
 

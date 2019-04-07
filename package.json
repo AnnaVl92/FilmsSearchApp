@@ -50,6 +50,7 @@
     "json-loader": "^0.5.7",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-test-renderer": "^16.8.6",
     "redux-devtools": "^3.5.0",
     "style-loader": "^0.23.1",
     "webpack-cli": "^3.2.3",
@@ -62,6 +63,7 @@
     ],
     "moduleDirectories": [
       "node_modules"
-    ]
+    ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   }
 }
