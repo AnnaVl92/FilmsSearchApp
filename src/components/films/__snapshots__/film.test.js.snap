@@ -1,3 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `ReactWrapper {}`;
+exports[`renders correctly 1`] = `
+<Film
+  film={
+    Object {
+      "genre": "Action & Adventure",
+      "img": "https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736",
+      "releaseDate": 2004,
+      "title": "Kill Bill: Volume 2",
+    }
+  }
+>
+  <div
+    className="col-md-4"
+  >
+    <div
+      className="card film"
+    >
+      <div
+        className="film-img-cnt"
+      >
+        <img
+          alt=""
+          className="card-img-top"
+          src="https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736"
+        />
+      </div>
+      <div
+        className="card-body"
+      >
+        <h2
+          className="card-title"
+        >
+          Kill Bill: Volume 2
+        </h2>
+        <p
+          className="film-year"
+        >
+          2004
+        </p>
+        <p
+          className="film-genre"
+        >
+          Action & Adventure
+        </p>
+      </div>
+    </div>
+  </div>
+</Film>
+`;

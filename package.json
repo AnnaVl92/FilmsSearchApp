@@ -55,15 +55,5 @@
     "style-loader": "^0.23.1",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
   }
 }

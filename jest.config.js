@@ -61,9 +61,9 @@ module.exports = {
   // globals: {},
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  moduleDirectories: [
+    "node_modules"
+  ],
 
   // An array of file extensions your modules use
   moduleFileExtensions: [
@@ -123,7 +123,7 @@ module.exports = {
   // setupFilesAfterEnv: [],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-  // snapshotSerializers: [],
+  snapshotSerializers: ["enzyme-to-json/serializer"],
 
   // The test environment that will be used for testing
   testEnvironment: "jest-environment-jsdom",
@@ -142,7 +142,7 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
-    "\\\\node_modules\\\\"
+    "/node_modules/"
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
