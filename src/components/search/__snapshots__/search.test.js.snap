@@ -1,0 +1,430 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search check list of films in search state 1`] = `
+<Search>
+  <form
+    className="search"
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group row"
+    >
+      <label
+        className="col-lg-10"
+      >
+        Find Your Movie
+        <input
+          className="form-control"
+          id="searchInput"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </label>
+      <div
+        className="col-lg-2"
+      >
+        <button
+          className="search-button btn btn-primary"
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+    <div
+      className="d-flex justify-content-between"
+    >
+      <div
+        className="search-filter d-flex justify-content-between align-items-center form-group"
+      >
+        SEARCH BY
+        <Radio
+          id="searchTitle"
+          isDefaultChecked={true}
+          labelText="TITLE"
+          name="searchFilter"
+          onChange={[Function]}
+          value="title"
+        >
+          <div
+            className="form-check"
+          >
+            <input
+              className="form-check-input"
+              defaultChecked={true}
+              id="searchTitle"
+              name="searchFilter"
+              onChange={[Function]}
+              type="radio"
+              value="title"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="searchTitle"
+            >
+              TITLE
+            </label>
+          </div>
+        </Radio>
+        <Radio
+          id="searchGenre"
+          labelText="GENRE"
+          name="searchFilter"
+          onChange={[Function]}
+          value="genre"
+        >
+          <div
+            className="form-check"
+          >
+            <input
+              className="form-check-input"
+              id="searchGenre"
+              name="searchFilter"
+              onChange={[Function]}
+              type="radio"
+              value="genre"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="searchGenre"
+            >
+              GENRE
+            </label>
+          </div>
+        </Radio>
+      </div>
+      <div
+        className="sort d-flex align-items-start justify-content-between"
+      >
+        Sort by
+        <Radio
+          id="sortReleaseDate"
+          labelText="release date"
+          name="sort"
+          onChange={[Function]}
+          value="releaseDate"
+        >
+          <div
+            className="form-check"
+          >
+            <input
+              className="form-check-input"
+              id="sortReleaseDate"
+              name="sort"
+              onChange={[Function]}
+              type="radio"
+              value="releaseDate"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="sortReleaseDate"
+            >
+              release date
+            </label>
+          </div>
+        </Radio>
+        <Radio
+          id="sortRating"
+          labelText="rating"
+          name="sort"
+          onChange={[Function]}
+          value="rating"
+        >
+          <div
+            className="form-check"
+          >
+            <input
+              className="form-check-input"
+              id="sortRating"
+              name="sort"
+              onChange={[Function]}
+              type="radio"
+              value="rating"
+            />
+            <label
+              className="form-check-label"
+              htmlFor="sortRating"
+            >
+              rating
+            </label>
+          </div>
+        </Radio>
+      </div>
+    </div>
+  </form>
+  <div
+    className="results"
+  >
+    4
+     movies found
+  </div>
+  <FilmsList
+    films={
+      Array [
+        Object {
+          "description": "The Bride (Uma Thurman) picks up where she left off in volume one with her quest to finish the hit list she has composed of all of the people who have wronged her, including ex-boyfriend Bill (David Carradine), who tried to have her killed four years ago during her wedding to another man. Leaving several dead in her wake, she eventually tracks down Bill in Mexico. Using skills she has learned during her assassin career, she attempts to finish what she set out to do in the first place",
+          "director": "Quentin Tarantino",
+          "duration": "2h 17min",
+          "genre": "Action & Adventure",
+          "id": 1,
+          "img": "https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736",
+          "rating": 8,
+          "releaseDate": 2004,
+          "title": "Kill Bill: Volume 2",
+        },
+        Object {
+          "description": "A former assassin, known simply as The Bride (Uma Thurman), wakes from a coma four years after her jealous ex-lover Bill (David Carradine) attempts to murder her on her wedding day. Fueled by an insatiable desire for revenge, she vows to get even with every person who contributed to the loss of her unborn child, her entire wedding party, and four years of her life. After devising a hit list, The Bride sets off on her quest, enduring unspeakable injury and unscrupulous enemies.",
+          "director": "Quentin Tarantino",
+          "duration": "1h 51min",
+          "genre": "Action & Adventure",
+          "id": 2,
+          "img": "https://vignette.wikia.nocookie.net/immwdb/images/e/e4/Kill-bill-vol-1.jpg/revision/latest?cb=20150116205604",
+          "rating": 8,
+          "releaseDate": 2003,
+          "title": "Kill Bill: Volume 1",
+        },
+        Object {
+          "description": "Vincent Vega (John Travolta) and Jules Winnfield (Samuel L. Jackson) are hitmen with a penchant for philosophical discussions. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace (Ving Rhames) ; his actress wife, Mia (Uma Thurman) ; struggling boxer Butch Coolidge (Bruce Willis) ; master fixer Winston Wolfe (Harvey Keitel) and a nervous pair of armed robbers, Pumpkin (Tim Roth) and Honey Bunny (Amanda Plummer).",
+          "director": "Quentin Tarantino",
+          "duration": "154 minutes",
+          "genre": "Drama & Crime",
+          "id": 3,
+          "img": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+          "rating": 8,
+          "releaseDate": 1994,
+          "title": "Pulp Fiction",
+        },
+        Object {
+          "description": "On the run from a bank robbery that left several police officers dead, Seth Gecko (George Clooney) and his paranoid, loose-cannon brother, Richard (Quentin Tarantino), hightail it to the Mexican border. Kidnapping preacher Jacob Fuller (Harvey Keitel) and his kids, the criminals sneak across the border in the family's RV and hole up in a topless bar. Unfortunately, the bar also happens to be home base for a gang of vampires, and the brothers and their hostages have to fight their way out.",
+          "director": "Robert Rodriguez",
+          "duration": "1h 48m",
+          "genre": "Mystery",
+          "id": 4,
+          "img": "http://image.tmdb.org/t/p/original/8nq0sMakxz4O9SifQJEspMzrdej.jpg",
+          "rating": 7,
+          "releaseDate": 1996,
+          "title": "From Dusk till Dawn",
+        },
+      ]
+    }
+  >
+    <div
+      className="row"
+    >
+      <Film
+        film={
+          Object {
+            "description": "The Bride (Uma Thurman) picks up where she left off in volume one with her quest to finish the hit list she has composed of all of the people who have wronged her, including ex-boyfriend Bill (David Carradine), who tried to have her killed four years ago during her wedding to another man. Leaving several dead in her wake, she eventually tracks down Bill in Mexico. Using skills she has learned during her assassin career, she attempts to finish what she set out to do in the first place",
+            "director": "Quentin Tarantino",
+            "duration": "2h 17min",
+            "genre": "Action & Adventure",
+            "id": 1,
+            "img": "https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736",
+            "rating": 8,
+            "releaseDate": 2004,
+            "title": "Kill Bill: Volume 2",
+          }
+        }
+        key="1"
+      >
+        <div
+          className="col-md-4"
+        >
+          <div
+            className="card film"
+          >
+            <div
+              className="film-img-cnt"
+            >
+              <img
+                alt=""
+                className="card-img-top"
+                src="https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736"
+              />
+            </div>
+            <div
+              className="card-body"
+            >
+              <h2
+                className="card-title"
+              >
+                Kill Bill: Volume 2
+              </h2>
+              <p
+                className="film-year"
+              >
+                2004
+              </p>
+              <p
+                className="film-genre"
+              >
+                Action & Adventure
+              </p>
+            </div>
+          </div>
+        </div>
+      </Film>
+      <Film
+        film={
+          Object {
+            "description": "A former assassin, known simply as The Bride (Uma Thurman), wakes from a coma four years after her jealous ex-lover Bill (David Carradine) attempts to murder her on her wedding day. Fueled by an insatiable desire for revenge, she vows to get even with every person who contributed to the loss of her unborn child, her entire wedding party, and four years of her life. After devising a hit list, The Bride sets off on her quest, enduring unspeakable injury and unscrupulous enemies.",
+            "director": "Quentin Tarantino",
+            "duration": "1h 51min",
+            "genre": "Action & Adventure",
+            "id": 2,
+            "img": "https://vignette.wikia.nocookie.net/immwdb/images/e/e4/Kill-bill-vol-1.jpg/revision/latest?cb=20150116205604",
+            "rating": 8,
+            "releaseDate": 2003,
+            "title": "Kill Bill: Volume 1",
+          }
+        }
+        key="2"
+      >
+        <div
+          className="col-md-4"
+        >
+          <div
+            className="card film"
+          >
+            <div
+              className="film-img-cnt"
+            >
+              <img
+                alt=""
+                className="card-img-top"
+                src="https://vignette.wikia.nocookie.net/immwdb/images/e/e4/Kill-bill-vol-1.jpg/revision/latest?cb=20150116205604"
+              />
+            </div>
+            <div
+              className="card-body"
+            >
+              <h2
+                className="card-title"
+              >
+                Kill Bill: Volume 1
+              </h2>
+              <p
+                className="film-year"
+              >
+                2003
+              </p>
+              <p
+                className="film-genre"
+              >
+                Action & Adventure
+              </p>
+            </div>
+          </div>
+        </div>
+      </Film>
+      <Film
+        film={
+          Object {
+            "description": "Vincent Vega (John Travolta) and Jules Winnfield (Samuel L. Jackson) are hitmen with a penchant for philosophical discussions. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace (Ving Rhames) ; his actress wife, Mia (Uma Thurman) ; struggling boxer Butch Coolidge (Bruce Willis) ; master fixer Winston Wolfe (Harvey Keitel) and a nervous pair of armed robbers, Pumpkin (Tim Roth) and Honey Bunny (Amanda Plummer).",
+            "director": "Quentin Tarantino",
+            "duration": "154 minutes",
+            "genre": "Drama & Crime",
+            "id": 3,
+            "img": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+            "rating": 8,
+            "releaseDate": 1994,
+            "title": "Pulp Fiction",
+          }
+        }
+        key="3"
+      >
+        <div
+          className="col-md-4"
+        >
+          <div
+            className="card film"
+          >
+            <div
+              className="film-img-cnt"
+            >
+              <img
+                alt=""
+                className="card-img-top"
+                src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+              />
+            </div>
+            <div
+              className="card-body"
+            >
+              <h2
+                className="card-title"
+              >
+                Pulp Fiction
+              </h2>
+              <p
+                className="film-year"
+              >
+                1994
+              </p>
+              <p
+                className="film-genre"
+              >
+                Drama & Crime
+              </p>
+            </div>
+          </div>
+        </div>
+      </Film>
+      <Film
+        film={
+          Object {
+            "description": "On the run from a bank robbery that left several police officers dead, Seth Gecko (George Clooney) and his paranoid, loose-cannon brother, Richard (Quentin Tarantino), hightail it to the Mexican border. Kidnapping preacher Jacob Fuller (Harvey Keitel) and his kids, the criminals sneak across the border in the family's RV and hole up in a topless bar. Unfortunately, the bar also happens to be home base for a gang of vampires, and the brothers and their hostages have to fight their way out.",
+            "director": "Robert Rodriguez",
+            "duration": "1h 48m",
+            "genre": "Mystery",
+            "id": 4,
+            "img": "http://image.tmdb.org/t/p/original/8nq0sMakxz4O9SifQJEspMzrdej.jpg",
+            "rating": 7,
+            "releaseDate": 1996,
+            "title": "From Dusk till Dawn",
+          }
+        }
+        key="4"
+      >
+        <div
+          className="col-md-4"
+        >
+          <div
+            className="card film"
+          >
+            <div
+              className="film-img-cnt"
+            >
+              <img
+                alt=""
+                className="card-img-top"
+                src="http://image.tmdb.org/t/p/original/8nq0sMakxz4O9SifQJEspMzrdej.jpg"
+              />
+            </div>
+            <div
+              className="card-body"
+            >
+              <h2
+                className="card-title"
+              >
+                From Dusk till Dawn
+              </h2>
+              <p
+                className="film-year"
+              >
+                1996
+              </p>
+              <p
+                className="film-genre"
+              >
+                Mystery
+              </p>
+            </div>
+          </div>
+        </div>
+      </Film>
+    </div>
+  </FilmsList>
+</Search>
+`;

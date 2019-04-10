@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio check if radio component render properly 1`] = `
+<div
+  className="form-check"
+>
+  <input
+    className="form-check-input"
+    id="sortReleaseDate"
+    name="sort"
+    type="radio"
+    value="releaseDate"
+  />
+  <label
+    className="form-check-label"
+    htmlFor="sortReleaseDate"
+  >
+    release date
+  </label>
+</div>
+`;

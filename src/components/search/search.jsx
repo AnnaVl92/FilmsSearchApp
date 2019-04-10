@@ -87,7 +87,7 @@ class Search extends React.Component {
 					<div className="form-group row">
 						<label className="col-lg-10">
 							Find Your Movie
-							<input type="text" value={this.state.searchValue} onChange={this.handleChange} className="form-control" />
+							<input type="text" id="searchInput" value={this.state.searchValue} onChange={this.handleChange} className="form-control" />
 						</label>
 						<div className="col-lg-2">
 							<button type="submit" className="search-button btn btn-primary">Search</button>
