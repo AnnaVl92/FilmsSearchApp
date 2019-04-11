@@ -2,6 +2,7 @@ import React from 'react';
 import data from '../../data.json';
 import FilmsList from '../films/filmsList.jsx';
 import Radio from '../radio/radio.jsx';
+import SearchInput from './searchInput.jsx';
 
 class Search extends React.Component {
 	state = {
@@ -85,10 +86,9 @@ class Search extends React.Component {
 			<React.Fragment>
 				<form className="search" onSubmit={this.handleSubmit}>
 					<div className="form-group row">
-						<label className="col-lg-10">
-							Find Your Movie
-							<input type="text" id="searchInput" value={this.state.searchValue} onChange={this.handleChange} className="form-control" />
-						</label>
+						<div className="col-lg-10">
+							<SearchInput value={this.state.searchValue} onChange={this.handleChange} />
+						</div>
 						<div className="col-lg-2">
 							<button type="submit" className="search-button btn btn-primary">Search</button>
 						</div>
