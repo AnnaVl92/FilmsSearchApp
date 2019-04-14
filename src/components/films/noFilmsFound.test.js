@@ -1,10 +1,9 @@
 import React from 'react';
 import NoFilmsFound from './noFilmsFound.jsx';
-import {render} from 'enzyme';
+import { shallow } from "enzyme";
 
 it('renders correctly', () => {
- 	const NoFilmsFound = render(
- 		<div>No Films Found</div>
- 	);
- 	expect(NoFilmsFound).toMatchSnapshot(); 
+ 	const component = shallow(<NoFilmsFound />);
+ 	expect(component.contains(<div>No Films Found</div>));
+ 	expect(component).toMatchSnapshot();
 });

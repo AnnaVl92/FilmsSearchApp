@@ -1,8 +1,9 @@
 import React from 'react';
 import data from '../../data.json';
 import FilmsList from '../films/filmsList.jsx';
-import Radio from '../radio/radio.jsx';
 import SearchInput from './searchInput.jsx';
+import SearchButton from './searchButton.jsx';
+import Radio from '../radio/radio.jsx';
 
 class Search extends React.Component {
 	state = {
@@ -87,22 +88,22 @@ class Search extends React.Component {
 				<form className="search" onSubmit={this.handleSubmit}>
 					<div className="form-group row">
 						<div className="col-lg-10">
-							<SearchInput value={this.state.searchValue} onChange={this.handleChange} />
+							<SearchInput value={this.searchValue} onChange={this.handleChange} />
 						</div>
 						<div className="col-lg-2">
-							<button type="submit" className="search-button btn btn-primary">Search</button>
+							<SearchButton />
 						</div>
 					</div>
 					<div className="d-flex justify-content-between">
 						<div className="search-filter d-flex justify-content-between align-items-center form-group">
 							SEARCH BY
-							<Radio id="searchTitle" name="searchFilter" value="title" onChange={this.changeSearchFilter} labelText="TITLE" isDefaultChecked />
-							<Radio id="searchGenre" name="searchFilter" value="genre" onChange={this.changeSearchFilter} labelText="GENRE" />
+							<Radio radioId="searchTitle" name="searchFilter" value="title" onChange={this.changeSearchFilter} labelText="TITLE" isDefaultChecked />
+							<Radio radioId="searchGenre" name="searchFilter" value="genre" onChange={this.changeSearchFilter} labelText="GENRE" />
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
 							Sort by
-							<Radio id="sortReleaseDate" name="sort" value="releaseDate" onChange={this.chooseSort} labelText="release date" />
-							<Radio id="sortRating" name="sort" value="rating" onChange={this.chooseSort} labelText="rating" />
+							<Radio radioId="sortReleaseDate" name="sort" value="releaseDate" onChange={this.chooseSort} labelText="release date" />
+							<Radio radioId="sortRating" name="sort" value="rating" onChange={this.chooseSort} labelText="rating" />
 						</div>
 					</div>
 				</form>

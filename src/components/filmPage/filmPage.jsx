@@ -1,5 +1,5 @@
 import React from 'react';
-import data from '../data.json';
+import data from '../../data.json';
 import FilmsList from '../films/filmsList.jsx';
 
 class FilmPage extends React.Component {

@@ -1,7 +1,6 @@
 import React from 'react';
 import Radio from './radio.jsx';
 import { shallow, mount } from "enzyme";
-import toJson from "enzyme-to-json";
 
 describe('Radio', function() {
 	it('check if radio component render properly',() => {

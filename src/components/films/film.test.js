@@ -1,7 +1,6 @@
 import React from 'react';
 import Film from './film.jsx';
 import { mount } from "enzyme";
-import toJson from "enzyme-to-json";
 
 it('renders correctly', () => {
 	const mockFilm = {

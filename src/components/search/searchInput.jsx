@@ -1,7 +1,6 @@
 import React from 'react';
 
 function SearchInput (props) {
-	console.log(props);
 	return (
 		<label>
 			Find Your Movie

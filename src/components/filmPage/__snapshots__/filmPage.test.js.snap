@@ -1,169 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search check list of films in search state 1`] = `
-<Search>
-  <form
-    className="search"
-    onSubmit={[Function]}
-  >
-    <div
-      className="form-group row"
-    >
-      <div
-        className="col-lg-10"
-      >
-        <SearchInput
-          onChange={[Function]}
-        >
-          <label>
-            Find Your Movie
-            <input
-              className="form-control"
-              onChange={[Function]}
-              type="text"
-            />
-          </label>
-        </SearchInput>
-      </div>
-      <div
-        className="col-lg-2"
-      >
-        <SearchButton>
-          <button
-            className="search-button btn btn-primary"
-            type="submit"
-          >
-            Search
-          </button>
-        </SearchButton>
-      </div>
-    </div>
-    <div
-      className="d-flex justify-content-between"
-    >
-      <div
-        className="search-filter d-flex justify-content-between align-items-center form-group"
-      >
-        SEARCH BY
-        <Radio
-          isDefaultChecked={true}
-          labelText="TITLE"
-          name="searchFilter"
-          onChange={[Function]}
-          radioId="searchTitle"
-          value="title"
-        >
-          <div
-            className="form-check"
-          >
-            <input
-              className="form-check-input"
-              defaultChecked={true}
-              id="searchTitle"
-              name="searchFilter"
-              onChange={[Function]}
-              type="radio"
-              value="title"
-            />
-            <label
-              className="form-check-label"
-              htmlFor="searchTitle"
-            >
-              TITLE
-            </label>
-          </div>
-        </Radio>
-        <Radio
-          labelText="GENRE"
-          name="searchFilter"
-          onChange={[Function]}
-          radioId="searchGenre"
-          value="genre"
-        >
-          <div
-            className="form-check"
-          >
-            <input
-              className="form-check-input"
-              id="searchGenre"
-              name="searchFilter"
-              onChange={[Function]}
-              type="radio"
-              value="genre"
-            />
-            <label
-              className="form-check-label"
-              htmlFor="searchGenre"
-            >
-              GENRE
-            </label>
-          </div>
-        </Radio>
-      </div>
-      <div
-        className="sort d-flex align-items-start justify-content-between"
-      >
-        Sort by
-        <Radio
-          labelText="release date"
-          name="sort"
-          onChange={[Function]}
-          radioId="sortReleaseDate"
-          value="releaseDate"
-        >
-          <div
-            className="form-check"
-          >
-            <input
-              className="form-check-input"
-              id="sortReleaseDate"
-              name="sort"
-              onChange={[Function]}
-              type="radio"
-              value="releaseDate"
-            />
-            <label
-              className="form-check-label"
-              htmlFor="sortReleaseDate"
-            >
-              release date
-            </label>
-          </div>
-        </Radio>
-        <Radio
-          labelText="rating"
-          name="sort"
-          onChange={[Function]}
-          radioId="sortRating"
-          value="rating"
-        >
-          <div
-            className="form-check"
-          >
-            <input
-              className="form-check-input"
-              id="sortRating"
-              name="sort"
-              onChange={[Function]}
-              type="radio"
-              value="rating"
-            />
-            <label
-              className="form-check-label"
-              htmlFor="sortRating"
-            >
-              rating
-            </label>
-          </div>
-        </Radio>
-      </div>
-    </div>
-  </form>
+exports[`FilmPage check if FilmPage renders properly 1`] = `
+<FilmPage>
   <div
-    className="results"
+    className="d-flex flex-row-reverse"
   >
-    4
-     movies found
+    <a
+      className="btn btn-primary"
+      href="#"
+    >
+      SEARCH
+    </a>
+  </div>
+  <div
+    className="row film-page"
+  >
+    <div
+      className="col-lg-4"
+    >
+      <img
+        alt=""
+        className="film-page-img"
+        src="https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736"
+      />
+    </div>
+    <div
+      className="col-lg-8"
+    >
+      <h2>
+        Kill Bill: Volume 2
+        <span
+          className="film-badge badge badge-success"
+        >
+          8
+        </span>
+      </h2>
+      <p>
+        Action & Adventure
+      </p>
+      <p
+        className="font-weight-bold"
+      >
+        2004
+        <span
+          className="film-page-duration"
+        >
+          2h 17min
+        </span>
+      </p>
+      <p>
+        The Bride (Uma Thurman) picks up where she left off in volume one with her quest to finish the hit list she has composed of all of the people who have wronged her, including ex-boyfriend Bill (David Carradine), who tried to have her killed four years ago during her wedding to another man. Leaving several dead in her wake, she eventually tracks down Bill in Mexico. Using skills she has learned during her assassin career, she attempts to finish what she set out to do in the first place
+      </p>
+    </div>
+  </div>
+  <div
+    className="films-similar-genre"
+  >
+    Film by 
+    Action & Adventure
+     genre
   </div>
   <FilmsList
     films={
@@ -432,5 +327,5 @@ exports[`Search check list of films in search state 1`] = `
       </Film>
     </div>
   </FilmsList>
-</Search>
+</FilmPage>
 `;
