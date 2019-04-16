@@ -102,13 +102,13 @@ class Search extends React.Component {
 					<div className="d-flex justify-content-between">
 						<div className="search-filter d-flex justify-content-between align-items-center form-group">
 							SEARCH BY
-							<Radio radioId="searchTitle" name="searchFilter" value="title" onChange={this.changeSearchFilter} labelText="TITLE" isDefaultChecked />
-							<Radio radioId="searchGenre" name="searchFilter" value="genre" onChange={this.changeSearchFilter} labelText="GENRE" />
+							<Radio id="searchTitle" name="searchFilter" value="title" onChange={this.changeSearchFilter} labelText="TITLE" isDefaultChecked />
+							<Radio id="searchGenre" name="searchFilter" value="genre" onChange={this.changeSearchFilter} labelText="GENRE" />
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
 							Sort by
-							<Radio radioId="sortReleaseDate" name="sort" value="releaseDate" onChange={this.chooseSort} labelText="release date" />
-							<Radio radioId="sortRating" name="sort" value="rating" onChange={this.chooseSort} labelText="rating" />
+							<Radio id="sortReleaseDate" name="sort" value="releaseDate" onChange={this.chooseSort} labelText="release date" />
+							<Radio id="sortRating" name="sort" value="rating" onChange={this.chooseSort} labelText="rating" />
 						</div>
 					</div>
 				</form>

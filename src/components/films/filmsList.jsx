@@ -7,7 +7,7 @@ function FilmsList (props) {
     );
 
 	return (
-		<div className="row">{films}</div>
+		<div className="films row">{films}</div>
 	);
 }
 
