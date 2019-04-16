@@ -1,7 +1,6 @@
 import React from 'react';
 import Search from './search.jsx';
 import SearchInput from './searchInput.jsx';
-import SearchButton from './searchButton.jsx';
 import { shallow, mount } from "enzyme";
 import data from '../../data.json';
 
@@ -16,31 +15,24 @@ describe('Search', function() {
 	});
 });
 
-describe('Search Form', () => {
+describe('Search submit', () => {
 	const mockSubmit = jest.fn(),
 		props = {
-			applySort: mockSubmit
+			handleSubmit: mockSubmit
 		},
 		fakeEvent = { preventDefault: () => console.log('preventDefault') },
-		component = shallow(<Search {...props} />),
-		button = shallow(<SearchButton />);
+		component = shallow(<Search {...props} />);
 
 	it('find form', () => {
 		expect(component.find("form").length).toBe(1);
 	});
 
-	beforeEach(() => {
+	it('check submit', done => {
 		component.find('form').simulate('submit', fakeEvent);
-	});
-
-	it('check submit', () => {
-		expect(mockSubmit).toHaveBeenCalledTimes(1);
-	});
-
-	// it('check click', () => {
-	// 	button.simulate('click', {
-	// 		preventDefault: () => {}, 
-	// 	})
-	// 	expect(mockSubmit).toHaveBeenCalledTimes(1);
-	// });
+		setTimeout(() => {
+			//expect(mockSubmit).toHaveBeenCalledTimes(1);
+			expect(component.state("submitHandled")).toBe(true)
+			done();
+		},100);
+	},1000);
 });

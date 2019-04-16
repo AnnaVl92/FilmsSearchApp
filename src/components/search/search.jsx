@@ -29,10 +29,13 @@ class Search extends React.Component {
 	}
 
 	handleChange = e => {
+		//this.props.handleChange();
 		this.setState({searchValue: e.target.value});
 	}
 
 	handleSubmit = e => {
+		//this.props.handleChange();
+		console.log('onSubmit');
 		e.preventDefault();
 		var searchValue = this.state.searchValue,
 			films = this.state.films,
@@ -45,13 +48,15 @@ class Search extends React.Component {
 				}
 	    	});
 		this.setState({
-			filteredFilms
+			filteredFilms,
+			submitHandled: true
     	});
     	this.applySort(filteredFilms,this.state.sortValue);
 		return false;
 	}
 
 	applySort(films,sortValue){
+		//this.props.applySort();
 		this.setState({
 			sortedFilms : this.sortFilms(films, sortValue)
 		})
@@ -85,10 +90,10 @@ class Search extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<form className="search" onSubmit={this.handleSubmit}>
+				<form className="search" onSubmit={(e) => this.handleSubmit(e)}>
 					<div className="form-group row">
 						<div className="col-lg-10">
-							<SearchInput value={this.searchValue} onChange={this.handleChange} />
+							<SearchInput value={this.searchValue} onChange={(e) => this.handleChange(e)} />
 						</div>
 						<div className="col-lg-2">
 							<SearchButton />
