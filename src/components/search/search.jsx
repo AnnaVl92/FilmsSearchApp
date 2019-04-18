@@ -1,5 +1,5 @@
 import React from 'react';
-import data from '../../data.json';
+import movies from '../../movies.json';
 import FilmsList from '../films/filmsList.jsx';
 import SearchInput from './searchInput.jsx';
 import SearchButton from './searchButton.jsx';
@@ -18,9 +18,9 @@ class Search extends React.Component {
 
 	componentDidMount() {
 		this.setState({
-			films: data.films,
-			filteredFilms: data.films,
-			sortedFilms: data.films
+			films: movies.data,
+			filteredFilms: movies.data,
+			sortedFilms: movies.data
 		});
 	}
 

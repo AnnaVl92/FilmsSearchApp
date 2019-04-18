@@ -6,12 +6,12 @@ function Film (props) {
 		<div className="col-md-4">
 			<div className="card film">
 				<div className="film-img-cnt">
-					<img className="card-img-top" src={film.img} alt="" />
+					<img className="card-img-top" src={film.poster_path} alt="" />
 				</div>
 				<div className="card-body">
 					<h2 className="card-title">{film.title}</h2>
-					<p className="film-year">{film.releaseDate}</p>
-					<p className="film-genre">{film.genre}</p>
+					<p className="film-year">{film.release_date}</p>
+					<p className="film-genre">{film.genres.join()}</p>
 				</div>
 			</div>
 		</div>

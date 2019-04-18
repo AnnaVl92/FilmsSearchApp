@@ -12,7 +12,7 @@ class App extends React.Component {
 		return (
 			<Provider store={store}>
 				<ErrorBoundary>
-					<Search />
+					<FilmPage />
 				</ErrorBoundary>
 			</Provider>
 		)
