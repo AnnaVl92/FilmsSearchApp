@@ -37,54 +37,16 @@ class Search extends React.Component {
 		//this.props.handleChange();
 		console.log('onSubmit');
 		e.preventDefault();
-		var searchValue = this.state.searchValue,
-			films = this.state.films,
-			searchFilterValue = this.state.searchFilterValue,
-			filteredFilms = films.filter(function(i) {
-				if (searchFilterValue == 'title'){
-					return  i.title && i.title.toLowerCase().match(searchValue);
-				} else if (searchFilterValue == 'genre'){
-					return  i.genre && i.genre.toLowerCase().match(searchValue);
-				}
-	    	});
 		this.setState({
 			filteredFilms,
 			submitHandled: true
     	});
-    	this.applySort(filteredFilms,this.state.sortValue);
 		return false;
-	}
-
-	applySort(films,sortValue){
-		//this.props.applySort();
-		this.setState({
-			sortedFilms : this.sortFilms(films, sortValue)
-		})
-	}
-
-	sortFilms = (films, sortValue) => {
-		return films.sort(function (prevFilm, nextFilm) {
-			if (sortValue == "releaseDate"){
-				if (prevFilm.releaseDate > nextFilm.releaseDate) {
-					return 1;
- 				} else if (prevFilm.releaseDate < nextFilm.releaseDate) {
-					return -1;
-				}
-			} else if (sortValue == "rating"){
-				if (prevFilm.rating > nextFilm.rating) {
-					return 1;
- 				} else if (prevFilm.rating < nextFilm.rating) {
-					return -1;
-				}
-			}
-			return 0;
-		})
 	}
 
 	chooseSort = e => {
 		var sortValue = e.target.value;
 		this.setState({sortValue: sortValue});
-		this.applySort(this.state.filteredFilms,sortValue);
 	}
 
 	render() {

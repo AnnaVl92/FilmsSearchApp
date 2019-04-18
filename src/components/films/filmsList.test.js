@@ -3,7 +3,7 @@ import FilmsList from './filmsList.jsx';
 import {shallow} from "enzyme";
 import toJson from "enzyme-to-json";
 
-it('renders correctly', () => {
+itx('renders correctly', () => {
 	const mockFilms = [{
 			id: 1,
 			img: "https://vignette.wikia.nocookie.net/cinemorgue/images/9/98/Kill_bill2_01.jpg/revision/latest?cb=20151221212736",

@@ -4,7 +4,7 @@ import SearchButton from './searchButton.jsx';
 import { shallow, mount } from "enzyme";
 
 describe('SearchInput', function() {
-	it('check onChange',() => {
+	itx('check onChange',() => {
 		const onChange = jest.fn(),
 			props= {
 				value: "Kill Bill",

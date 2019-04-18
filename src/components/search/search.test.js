@@ -5,7 +5,7 @@ import { shallow, mount } from "enzyme";
 import data from '../../data.json';
 
 describe('Search', function() {
-	it('check list of films in search state',() => {
+	itx('check list of films in search state',() => {
 		const wrapper = mount(<Search />);
 		expect(wrapper.state().films).toEqual(data.films);
 		expect(wrapper.state().filteredFilms).toEqual(data.films);
@@ -23,14 +23,13 @@ describe('Search submit', () => {
 		fakeEvent = { preventDefault: () => console.log('preventDefault') },
 		component = shallow(<Search {...props} />);
 
-	it('find form', () => {
+	itx('find form', () => {
 		expect(component.find("form").length).toBe(1);
 	});
 
-	it('check submit', done => {
+	itx('check submit', done => {
 		component.find('form').simulate('submit', fakeEvent);
 		setTimeout(() => {
-			//expect(mockSubmit).toHaveBeenCalledTimes(1);
 			expect(component.state("submitHandled")).toBe(true)
 			done();
 		},100);
