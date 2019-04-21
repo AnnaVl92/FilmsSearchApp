@@ -2,12 +2,12 @@ import React from 'react';
 import Film from './film.jsx';
 
 function FilmsList (props) {
-	const films = props.films.map((film) =>
-		<Film key={film.id} film={film} />
+	const movies = props.movies.map((movie) =>
+		<Film key={movie.id} movie={movie} />
     );
 
 	return (
-		<div className="films row">{films}</div>
+		<div className="films row">{movies}</div>
 	);
 }
 

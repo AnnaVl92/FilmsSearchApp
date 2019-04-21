@@ -1,7 +1,17 @@
 {
-  "presets": ["@babel/env", "@babel/react"],
+  "presets": ["@babel/react", ["@babel/preset-env", {"useBuiltIns": false}]],
   "plugins": [
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    ["transform-function-bind"]
+    ["transform-function-bind"],
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": false,
+        "helpers": true,
+        "regenerator": true,
+        "useESModules": false
+      }
+    ]
   ]
 }

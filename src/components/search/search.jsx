@@ -1,28 +1,29 @@
 import React from 'react';
-import movies from '../../movies.json';
+//import movies from '../../movies.json';
 import FilmsList from '../films/filmsList.jsx';
 import SearchInput from './searchInput.jsx';
 import SearchButton from './searchButton.jsx';
 import Radio from '../radio/radio.jsx';
+import { connect } from "react-redux";
 
 class Search extends React.Component {
 	state = {
 		searchValue: '',
-		films: [],
-		filteredFilms: [],
+		// movies: [],
+		filteredMovies: [],
 		searchFilterValue: 'title',
 		sortValue: '',
-		sortedFilms: [],
-		isSelectedFilm: false
+		sortedMovies: [],
+		isSelectedMovie: false
 	};
 
-	componentDidMount() {
-		this.setState({
-			films: movies.data,
-			filteredFilms: movies.data,
-			sortedFilms: movies.data
-		});
-	}
+	// componentDidMount() {
+	// 	this.setState({
+	// 		movies: movies,
+	// 		// filteredMovies: movies.data,
+	// 		// sortedMovies: movies.data
+	// 	});
+	// }
 
 	changeSearchFilter = e => {
 		this.setState({searchFilterValue: e.target.value});
@@ -38,7 +39,7 @@ class Search extends React.Component {
 		console.log('onSubmit');
 		e.preventDefault();
 		this.setState({
-			filteredFilms,
+			filteredMovies,
 			submitHandled: true
     	});
 		return false;
@@ -50,6 +51,8 @@ class Search extends React.Component {
 	}
 
 	render() {
+		const { movies } = this.props;
+
 		return (
 			<React.Fragment>
 				<form className="search" onSubmit={(e) => this.handleSubmit(e)}>
@@ -74,11 +77,17 @@ class Search extends React.Component {
 						</div>
 					</div>
 				</form>
-				<div className="results">{this.state.filteredFilms.length} movies found</div>
-				<FilmsList films={this.state.sortedFilms} />
+				<div className="results">{movies.length} movies found</div>
+				<FilmsList movies={movies} />
 			</React.Fragment>
 		);
 	}
 }
 
-export default Search;
+const mapStateToProps = state => {
+	return {
+		movies: state.movies,
+	};
+};
+
+export default connect(mapStateToProps,null)(Search);

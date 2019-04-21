@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	context: path.join(__dirname, 'src'),
-	entry: './app.js',
+	entry: './index.js',
 	
 	devtool: 'source-map',
 	
@@ -32,7 +32,7 @@ module.exports = {
 	
 	plugins: [new HtmlWebpackPlugin(
 		{
-			template: "./app.html"
+			template: "./index.html"
 		}
 	)],
 	

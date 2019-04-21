@@ -1,19 +1,16 @@
-import { createStore, applyMiddleware, compose  } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { reducer } from "./redux";
-import { watcherSaga } from './sagas';
+import reducer from '../reducers';
+import { logger } from 'redux-logger';
+import rootSaga from '../sagas';
 
 const rootReducer = function(){};
 
 const sagaMiddleware = createSagaMiddleware();
-const reduxDevTools =
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(
-  reducer,
-  compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+	reducer,
+	applyMiddleware(sagaMiddleware, logger)
 );
-sagaMiddleware.run(watcherSaga);
-
-const action = type => store.dispatch({type})
+sagaMiddleware.run(rootSaga);
 
 export default store;
