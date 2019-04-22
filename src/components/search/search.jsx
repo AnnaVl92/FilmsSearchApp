@@ -5,6 +5,8 @@ import SearchInput from './searchInput.jsx';
 import SearchButton from './searchButton.jsx';
 import Radio from '../radio/radio.jsx';
 import { connect } from "react-redux";
+import { reduxForm, Field } from 'react-redux-form';
+import { getMovies } from '../../actions';
 
 class Search extends React.Component {
 	state = {
@@ -34,16 +36,16 @@ class Search extends React.Component {
 		this.setState({searchValue: e.target.value});
 	}
 
-	handleSubmit = e => {
-		//this.props.handleChange();
-		console.log('onSubmit');
-		e.preventDefault();
-		this.setState({
-			filteredMovies,
-			submitHandled: true
-    	});
-		return false;
-	}
+	// handleSubmit = e => {
+	// 	//this.props.handleChange();
+	// 	console.log('onSubmit');
+	// 	e.preventDefault();
+	// 	this.setState({
+	// 		filteredMovies,
+	// 		submitHandled: true
+ //    	});
+	// 	return false;
+	// }
 
 	chooseSort = e => {
 		var sortValue = e.target.value;
@@ -51,11 +53,12 @@ class Search extends React.Component {
 	}
 
 	render() {
-		const { movies } = this.props;
+		const { movies, handleSubmit } = this.props;
+		// const submit = handleSubmit(getMovies);
 
 		return (
 			<React.Fragment>
-				<form className="search" onSubmit={(e) => this.handleSubmit(e)}>
+				<form className="search" onSubmit={handleSubmit}>
 					<div className="form-group row">
 						<div className="col-lg-10">
 							<SearchInput value={this.searchValue} onChange={(e) => this.handleChange(e)} />
@@ -90,4 +93,14 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps,null)(Search);
+const mapDispatchToProps = dispatch => ({
+	onSubmit: values =>
+    	console.log(values),
+});
+
+Search = reduxForm({
+	form: "Search", // a unique identifier for this form
+	// onSubmit: _ => {} ALT SOLUTION: can pass it in here
+})(Search);
+
+export default connect(mapStateToProps,mapDispatchToProps)(Search);

@@ -1,4 +1,5 @@
 import { takeLatest, all, put } from "redux-saga/effects";
+import { getMovies } from '../actions';
 
 function* fetchMovies() {
 	const json = yield fetch('https://reactjs-cdp.herokuapp.com/movies')
