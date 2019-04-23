@@ -1,7 +1,4 @@
-import { createFormAction } from 'redux-form-saga';
- 
-// export const searchMovies = createFormAction('SEARCH_SUBMIT');
-
-export const getMovies = () => createFormAction({
+export const getMovies = (params) => ({
 	type: 'GET_MOVIES',
+	params: params || ({ sort : 'desc', searchBy : 'title', name : '' })
 });
