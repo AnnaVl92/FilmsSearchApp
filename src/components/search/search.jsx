@@ -13,7 +13,8 @@ class Search extends React.Component {
 		// movies: [],
 		filteredMovies: [],
 		searchFilterValue: 'title',
-		sortValue: '',
+		sortValue: 'release_date',
+		sortByOrderValue: 'asc',
 		sortedMovies: [],
 		isSelectedMovie: false
 	};
@@ -40,9 +41,11 @@ class Search extends React.Component {
 		e.preventDefault();
 		console.log(this.state.sortValue);
 		this.props.getMovies({ 
-			sort : this.state.sortValue, 
+			sortBy : this.state.sortValue,
+			sortOrder: this.state.sortByOrderValue, 
 			searchBy : this.state.searchFilterValue, 
-			name : this.state.searchValue });
+			name : this.state.searchValue
+		});
 		// this.setState({
 		// 	filteredMovies,
 		// 	submitHandled: true
@@ -53,6 +56,23 @@ class Search extends React.Component {
 	chooseSort = e => {
 		var sortValue = e.target.value;
 		this.setState({sortValue: sortValue});
+		this.props.getMovies({ 
+			sortBy : sortValue,
+			sortOrder: this.state.sortByOrderValue, 
+			searchBy : this.state.searchFilterValue, 
+			name : this.state.searchValue
+		});
+	}
+
+	chooseSortByOrder = e => {
+		var sortByOrderValue = e.target.value;
+		this.setState({sortByOrderValue: sortByOrderValue});
+		this.props.getMovies({ 
+			sortBy : this.state.sortValue,
+			sortOrder: sortByOrderValue, 
+			searchBy : this.state.searchFilterValue, 
+			name : this.state.searchValue
+		});
 	}
 
 	render() {
@@ -73,12 +93,17 @@ class Search extends React.Component {
 						<div className="search-filter d-flex justify-content-between align-items-center form-group">
 							SEARCH BY
 							<Radio id="searchTitle" name="searchFilter" value="title" onChange={this.changeSearchFilter} labelText="TITLE" isDefaultChecked />
-							<Radio id="searchGenre" name="searchFilter" value="genre" onChange={this.changeSearchFilter} labelText="GENRE" />
+							<Radio id="searchGenre" name="searchFilter" value="genres" onChange={this.changeSearchFilter} labelText="GENRE" />
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
 							Sort by
-							<Radio id="sortReleaseDate" name="sort" value="releaseDate" onChange={this.chooseSort} labelText="release date" />
-							<Radio id="sortRating" name="sort" value="rating" onChange={this.chooseSort} labelText="rating" />
+							<Radio id="sortReleaseDate" name="sort" value="release_date" onChange={this.chooseSort} labelText="release date" isDefaultChecked />
+							<Radio id="sortRating" name="sort" value="vote_average" onChange={this.chooseSort} labelText="rating" />
+						</div>
+						<div className="sort d-flex align-items-start justify-content-between">
+							Sort by
+							<Radio id="ascOrder" name="sortByOrder" value="asc" onChange={this.chooseSortByOrder} labelText="asc. order" isDefaultChecked />
+							<Radio id="descOrder" name="sortByOrder" value="desc" onChange={this.chooseSortByOrder} labelText="desc. order" />
 						</div>
 					</div>
 				</form>
