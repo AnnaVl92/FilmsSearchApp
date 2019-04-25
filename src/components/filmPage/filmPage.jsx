@@ -1,20 +1,24 @@
 import React from 'react';
-import movies from '../../movies.json';
+// import movies from '../../movies.json';
 import FilmsList from '../films/filmsList.jsx';
+import { connect } from "react-redux";
 
 class FilmPage extends React.Component {
-	state = {
-		film: {},
-		similarFilms: movies.data
-	};
+	// state = {
+	// 	film: {},
+	// 	similarFilms: movies.data
+	// };
 
-	componentDidMount() {
-		this.setState({
-			film: movies.data[0]
-		});
-	}
+	// componentDidMount() {
+	// 	this.setState({
+	// 		film: movies.data[0]
+	// 	});
+	// }
 
 	render() {
+		const { movies, movie } = this.props;
+		console.log(movies);
+
 		return (
 			<React.Fragment>
 				<div className="d-flex flex-row-reverse">
@@ -22,28 +26,35 @@ class FilmPage extends React.Component {
 				</div>
 				<div className="row film-page">
 					<div className="col-lg-4">
-						<img className="film-page-img" src={this.state.film.poster_path} alt="" />
+						<img className="film-page-img" src={movie.poster_path} alt="" />
 					</div>
 					<div className="col-lg-8">
 						<h2>
-							{this.state.film.title}
+							{movie.title}
 							<span className="film-badge badge badge-success">
-								{this.state.film.vote_average}
+								{movie.vote_average}
 							</span>
 						</h2>
-						<p>{this.state.film.genres}</p>
+						<p>{movie.genres}</p>
 						<p className="font-weight-bold">
-							{this.state.film.release_date}
-							<span className="film-page-duration">{this.state.film.runtime}</span>
+							{movie.release_date}
+							<span className="film-page-duration">{movie.runtime}</span>
 						</p>
-						<p>{this.state.film.overview}</p>
+						<p>{movie.overview}</p>
 					</div>
 				</div>
-				<div className="films-similar-genre">Film by {this.state.film.genres} genre</div>
-				<FilmsList films={this.state.similarFilms} />
+				<div className="films-similar-genre">Film by {movie.genres} genre</div>
+				<FilmsList films={movies} />
 			</React.Fragment>
 		)
 	}
 }
 
-export default FilmPage; 
+const mapStateToProps = state => {
+	return {
+		movies: state.movies,
+		movie: state.movie
+	};
+};
+
+export default connect(mapStateToProps, null)(FilmPage); 

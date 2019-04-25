@@ -1,5 +1,6 @@
 const initialState = {
-	movies: []
+	movies: [],
+	movie: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -7,7 +8,11 @@ const reducer = (state = initialState, action) => {
 		case 'GET_MOVIES':
 			return { ...state, loading: true };
 		case 'MOVIES_RECEIVED':
-			return { ...state, movies: action.json, loading: false }
+			return { ...state, movies: action.json, loading: false };
+		case 'GET_MOVIE_ID':
+			return { ...state, loading: true };
+		case 'MOVIE_ID_RECEIVED':
+			return { ...state, movie: action.json, loading: false };
 		default:
 			return state;
 	}

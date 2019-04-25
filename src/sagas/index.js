@@ -1,5 +1,5 @@
 import { takeLatest, all, put } from "redux-saga/effects";
-import { getMovies } from '../actions';
+import { getMovies, getMovieId } from '../actions';
 
 function* fetchMovies(params) {
 	params = params.params && params.params;
@@ -12,9 +12,22 @@ function* actionWatcher() {
 	yield takeLatest('GET_MOVIES', fetchMovies)
 };
 
+function* fetchMovieById(payload) {
+	payload = payload.payload && payload.payload;
+	const json = yield fetch(`https://reactjs-cdp.herokuapp.com/movies/${payload.id}`)
+		.then(response => response.json(), );
+	yield put({ type: "MOVIE_ID_RECEIVED", json: json });
+};
+
+function* actionIdWatcher() {
+	yield takeLatest('GET_MOVIE_ID', fetchMovieById)
+};
+
 export default function* rootSaga() {
 	yield all([
 		fetchMovies({params: { sort : 'desc', searchBy : 'title', name : '' }}),
-		actionWatcher()
+		actionWatcher(),
+		fetchMovieById({payload: { id: 19 }}),
+		actionIdWatcher()
 	]);
 }
