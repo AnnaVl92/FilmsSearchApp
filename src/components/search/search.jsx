@@ -10,7 +10,6 @@ import { getMovies } from '../../actions';
 class Search extends React.Component {
 	state = {
 		searchValue: '',
-		// movies: [],
 		filteredMovies: [],
 		searchFilterValue: 'title',
 		sortValue: 'release_date',
@@ -18,14 +17,6 @@ class Search extends React.Component {
 		sortedMovies: [],
 		isSelectedMovie: false
 	};
-
-	// componentDidMount() {
-	// 	this.setState({
-	// 		movies: movies,
-	// 		// filteredMovies: movies.data,
-	// 		// sortedMovies: movies.data
-	// 	});
-	// }
 
 	changeSearchFilter = e => {
 		this.setState({searchFilterValue: e.target.value});

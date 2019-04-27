@@ -4,16 +4,6 @@ import FilmsList from '../films/filmsList.jsx';
 import { connect } from "react-redux";
 
 class FilmPage extends React.Component {
-	// state = {
-	// 	film: {},
-	// 	similarFilms: movies.data
-	// };
-
-	// componentDidMount() {
-	// 	this.setState({
-	// 		film: movies.data[0]
-	// 	});
-	// }
 
 	render() {
 		const { movies, movie } = this.props;
@@ -44,7 +34,7 @@ class FilmPage extends React.Component {
 					</div>
 				</div>
 				<div className="films-similar-genre">Film by {movie.genres} genre</div>
-				<FilmsList films={movies} />
+				<FilmsList movies={movies} />
 			</React.Fragment>
 		)
 	}
@@ -52,7 +42,7 @@ class FilmPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		movies: state.movies,
+		movies: state.similarMovies,
 		movie: state.movie
 	};
 };

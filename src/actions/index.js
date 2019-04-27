@@ -6,4 +6,9 @@ export const getMovies = (params) => ({
 export const getMovieId = (payload) => ({
 	type: 'GET_MOVIE_ID',
 	payload: ({ id: 19 })
-})
+});
+
+export const getMoviesBySimilarGenre = (params) => ({
+	type: 'GET_MOVIES_BY_SIMILAR_GENRE',
+	params: params || ({ searchBy : 'genres', filter : 'Drama, Science Fiction' })
+});

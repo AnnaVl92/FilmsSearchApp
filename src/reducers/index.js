@@ -1,6 +1,7 @@
 const initialState = {
 	movies: [],
-	movie: {}
+	movie: {},
+	similarMovies: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,6 +14,10 @@ const reducer = (state = initialState, action) => {
 			return { ...state, loading: true };
 		case 'MOVIE_ID_RECEIVED':
 			return { ...state, movie: action.json, loading: false };
+		case 'GET_MOVIES_BY_SIMILAR_GENRE':
+			return { ...state, loading: true };
+		case 'MOVIES_BY_SIMILAR_GENRE_RECEIVED':
+			return { ...state, similarMovies: action.json, loading: false };
 		default:
 			return state;
 	}
