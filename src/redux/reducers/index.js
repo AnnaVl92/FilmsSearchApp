@@ -1,10 +1,4 @@
-const initialState = {
-	movies: [],
-	movie: {},
-	similarMovies: []
-};
-
-const reducer = (state = initialState, action) => {
+export default function reducer(state = { movies: [], movie: {}, similarMovies: [] }, action){
 	switch (action.type) {
 		case 'GET_MOVIES':
 			return { ...state, loading: true };
@@ -22,4 +16,3 @@ const reducer = (state = initialState, action) => {
 			return state;
 	}
 };
-export default reducer;

@@ -5,7 +5,7 @@ import SearchInput from './searchInput.jsx';
 import SearchButton from './searchButton.jsx';
 import Radio from '../radio/radio.jsx';
 import { connect } from "react-redux";
-import { getMovies } from '../../actions';
+import { getMovies } from '../../redux/actions';
 
 class Search extends React.Component {
 	state = {
