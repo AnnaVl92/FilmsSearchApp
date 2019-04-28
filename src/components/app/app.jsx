@@ -8,7 +8,7 @@ class App extends React.Component {
 	render(){
 		return (
 			<ErrorBoundary>
-				<FilmPage />
+				<Search />
 			</ErrorBoundary>
 		)
 	}
