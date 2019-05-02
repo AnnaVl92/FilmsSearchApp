@@ -17,7 +17,6 @@ class FilmPage extends React.Component {
 				<div className="row film-page">
 					<div className="col-lg-4">
 						<img className="film-page-img" src={movie.poster_path} alt="" />
-						ID: {match.params.id}
 					</div>
 					<div className="col-lg-8">
 						<h2>

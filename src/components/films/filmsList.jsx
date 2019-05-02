@@ -5,12 +5,13 @@ import { Link, Redirect } from "react-router-dom";
 import { getMovieById } from '../../redux/actions';
 
 class FilmsList extends React.Component {
-	// state = {
-	// 	redirect: false
-	// };
+	state = {
+		redirect: false,
+		selectedMovieId: null
+	};
 
 	handleOnClick = (movieId,event) => {
-		// this.setState({redirect: true});
+		this.setState({redirect: true,selectedMovieId:movieId});
 		event.preventDefault();
 		console.log(movieId);
 		this.props.getMovieById({id: movieId});
@@ -18,9 +19,10 @@ class FilmsList extends React.Component {
 	};
 
 	render() {
-		// if (this.state.redirect) {
-		// 	return <Redirect push to="/film/:id" />;
-		// };
+		if (this.state.redirect) {
+			this.setState({redirect: false});
+			return <Redirect push to={`/film/${this.state.selectedMovieId}`} />;
+		};
 		const { movie, getMovieById } = this.props;
 
 		const movies = this.props.movies.map((movie) =>
