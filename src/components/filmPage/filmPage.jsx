@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 class FilmPage extends React.Component {
 
 	render() {
-		const { movies, movie } = this.props;
-		console.log(movies);
+		const { movies, movie, match } = this.props;
+		console.log(match.params.id);
 
 		return (
 			<React.Fragment>
@@ -17,6 +17,7 @@ class FilmPage extends React.Component {
 				<div className="row film-page">
 					<div className="col-lg-4">
 						<img className="film-page-img" src={movie.poster_path} alt="" />
+						ID: {match.params.id}
 					</div>
 					<div className="col-lg-8">
 						<h2>

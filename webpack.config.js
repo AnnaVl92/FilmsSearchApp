@@ -10,11 +10,16 @@ module.exports = {
 	output: {
 		filename: 'bundle.js',
 		path: path.join(__dirname, 'src'),
+		publicPath: '/'
 	},
+
+	devServer: {
+		historyApiFallback: true
+  	},
 	
 	resolve: {
 		extensions: ['.js', '.jsx']
-	},
+	},	
 	
 	module: {
 		rules: [

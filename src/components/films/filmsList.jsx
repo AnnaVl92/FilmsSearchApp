@@ -1,14 +1,45 @@
 import React from 'react';
 import Film from './film.jsx';
+import { connect } from 'react-redux';
+import { Link, Redirect } from "react-router-dom";
+import { getMovieById } from '../../redux/actions';
 
-function FilmsList (props) {
-	const movies = props.movies.map((movie) =>
-		<Film key={movie.id} movie={movie} />
-    );
+class FilmsList extends React.Component {
+	// state = {
+	// 	redirect: false
+	// };
 
-	return (
-		<div className="films row">{movies}</div>
-	);
-}
+	handleOnClick = (movieId,event) => {
+		// this.setState({redirect: true});
+		event.preventDefault();
+		console.log(movieId);
+		this.props.getMovieById({id: movieId});
+		return false;
+	};
 
-export default FilmsList;
+	render() {
+		// if (this.state.redirect) {
+		// 	return <Redirect push to="/film/:id" />;
+		// };
+		const { movie, getMovieById } = this.props;
+
+		const movies = this.props.movies.map((movie) =>
+			<div className="col-md-4" key={movie.id}>
+				<Link to={`/film/${movie.id}`} className="card film" onClick={(e) => this.handleOnClick(movie.id, e)}>
+					<Film movie={movie} />
+				</Link>
+			</div>
+		);
+
+		return (
+			<div className="films row">{movies}</div>
+		);
+	}
+};
+
+
+const mapDispatchToProps = {
+	getMovieById: getMovieById
+};
+
+export default connect(null, mapDispatchToProps)(FilmsList);

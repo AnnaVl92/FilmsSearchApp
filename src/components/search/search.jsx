@@ -6,6 +6,8 @@ import SearchButton from './searchButton.jsx';
 import Radio from '../radio/radio.jsx';
 import { connect } from "react-redux";
 import { getMovies } from '../../redux/actions';
+import { BrowserRouter as Router } from "react-router-dom";
+import FilmPage from '../filmPage/filmPage.jsx';
 
 class Search extends React.Component {
 	state = {
@@ -99,7 +101,9 @@ class Search extends React.Component {
 					</div>
 				</form>
 				<div className="results">{movies.length} movies found</div>
-				<FilmsList movies={movies} />
+				<Router>
+					<FilmsList movies={movies} />
+				</Router>
 			</React.Fragment>
 		);
 	}

@@ -3,9 +3,9 @@ export const getMovies = (params) => ({
 	params: params || ({ sortBy: 'release_date', sortOrder : 'asc', searchBy : 'title', name : '' })
 });
 
-export const getMovieId = (payload) => ({
-	type: 'GET_MOVIE_ID',
-	payload: ({ id: 19 })
+export const getMovieById = (params) => ({
+	type: 'GET_MOVIE_BY_ID',
+	payload: params
 });
 
 export const getMoviesBySimilarGenre = (params) => ({

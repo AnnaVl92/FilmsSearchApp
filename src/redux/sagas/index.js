@@ -16,11 +16,11 @@ function* fetchMovieById(payload) {
 	payload = payload.payload && payload.payload;
 	const json = yield fetch(`https://reactjs-cdp.herokuapp.com/movies/${payload.id}`)
 		.then(response => response.json(), );
-	yield put({ type: "MOVIE_ID_RECEIVED", json: json });
+	yield put({ type: "MOVIE_BY_ID_RECEIVED", json: json });
 };
 
 function* actionIdWatcher() {
-	yield takeLatest('GET_MOVIE_ID', fetchMovieById)
+	yield takeLatest('GET_MOVIE_BY_ID', fetchMovieById)
 };
 
 function* fetchMoviesBySimilarGenre(params) {
@@ -38,7 +38,7 @@ export default function* rootSaga() {
 	yield all([
 		fetchMovies({params: { sort : 'desc', searchBy : 'title', name : '' }}),
 		actionWatcher(),
-		fetchMovieById({payload: { id: 19 }}),
+		fetchMovieById({payload: { id: null }}),
 		actionIdWatcher(),
 		fetchMoviesBySimilarGenre({params: { searchBy : 'genres', filter : 'Drama, Science Fiction' }}),
 		actionSimilarGenreWatcher()

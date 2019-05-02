@@ -6,23 +6,26 @@ import ErrorBoundary from '../error/errorBoundary.jsx';
 import NoFilmsFound from  '../films/noFilmsFound.jsx';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-const Main = () => {
-	return (
-		<Switch>
-			<Route exact path="/" component={Search}/>
-			<Route path="/film/:id" component={FilmPage}/>
-			<Route component={NoFilmsFound}/>
-		</Switch>
-	)
-};
+// const Main = () => {
+// 	return (
+// 		<Switch>
+// 			<Route exact path="/" component={Search}/>
+// 			<Route component={NoFilmsFound}/>
+// 		</Switch>
+// 	)
+// };
 
+/*<Route path="/film/:id" component={FilmPage}/>*/
 
 class App extends React.Component {
 	render(){
 		return (
 			<ErrorBoundary>
 				<Router>
-					<Route exact path="/" component={Search}/>
+					<Switch>
+						<Route exact path="/" component={Search}/>
+						<Route path="/film/:id" component={FilmPage}/>
+					</Switch>
 				</Router>
 			</ErrorBoundary>
 		)

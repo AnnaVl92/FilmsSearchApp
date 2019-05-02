@@ -18,6 +18,10 @@
 	margin: 0 10px;
 }
 
+.film{
+	display: block;
+}
+
 .sort,.film,.results{
 	margin-bottom: 10px;
 }
