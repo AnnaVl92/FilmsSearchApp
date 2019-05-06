@@ -40,7 +40,7 @@ class FilmsList extends React.Component {
 
 		const movies = this.props.movies.map((movie) =>
 			<div className="col-md-4" key={movie.id}>
-				<Link to={`/film/${movie.id}`} className="card film" onClick={(e) => this.handleOnClick(movie.id, e)}>
+				<Link to={`/film/${movie.id}`} className="card film">
 					<Film movie={movie} />
 				</Link>
 			</div>

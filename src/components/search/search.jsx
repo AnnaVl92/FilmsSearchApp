@@ -6,7 +6,7 @@ import SearchButton from './searchButton.jsx';
 import Radio from '../radio/radio.jsx';
 import { connect } from "react-redux";
 import { getMovies } from '../../redux/actions';
-import { BrowserRouter as Router } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import FilmPage from '../filmPage/filmPage.jsx';
 
 class Search extends React.Component {
@@ -101,9 +101,7 @@ class Search extends React.Component {
 					</div>
 				</form>
 				<div className="results">{movies.length} movies found</div>
-				<Router>
-					<FilmsList movies={movies} />
-				</Router>
+				<FilmsList movies={movies} />
 			</React.Fragment>
 		);
 	}
@@ -119,4 +117,4 @@ const mapDispatchToProps = {
 	getMovies: getMovies
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
