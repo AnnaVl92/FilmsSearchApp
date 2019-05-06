@@ -2,12 +2,25 @@ import React from 'react';
 // import movies from '../../movies.json';
 import FilmsList from '../films/filmsList.jsx';
 import { connect } from "react-redux";
+import { getMovieById, getMoviesBySimilarGenre } from '../../redux/actions';
 
 class FilmPage extends React.Component {
 
+	componentDidMount() {
+		this.props.getMovieById(+this.props.match.params.id);
+		// this.setState({
+		// 	selectedMovie:this.props.getMovieById(+this.props.match.params.id),
+		// 	similarMovies:this.props.getMoviesBySimilarGenre(this.state.selectedMovie.genres)
+		// });
+	};
+
 	render() {
-		const { movies, movie, match } = this.props;
-		console.log(match.params.id);
+		const { movies, movie, match, getMovieById, getMoviesBySimilarGenre } = this.props;
+		// getMovieById(+match.params.id);
+		console.log(match);
+		// console.log(typeof +match.params.id);
+		console.log(this.props);
+		
 
 		return (
 			<React.Fragment>
@@ -47,4 +60,9 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, null)(FilmPage); 
+const mapDispatchToProps = {
+	getMovieById: getMovieById,
+	getMoviesBySimilarGenre: getMoviesBySimilarGenre
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilmPage); 

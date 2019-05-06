@@ -14,7 +14,7 @@ function* actionWatcher() {
 
 function* fetchMovieById(payload) {
 	payload = payload.payload && payload.payload;
-	const json = yield fetch(`https://reactjs-cdp.herokuapp.com/movies/${payload.id}`)
+	const json = yield fetch(`https://reactjs-cdp.herokuapp.com/movies/${payload}`)
 		.then(response => response.json(), );
 	yield put({ type: "MOVIE_BY_ID_RECEIVED", json: json });
 };
@@ -40,7 +40,7 @@ export default function* rootSaga() {
 		actionWatcher(),
 		fetchMovieById({payload: { id: null }}),
 		actionIdWatcher(),
-		fetchMoviesBySimilarGenre({params: { searchBy : 'genres', filter : 'Drama, Science Fiction' }}),
+		fetchMoviesBySimilarGenre({params: { searchBy : 'genres', filter : '' }}),
 		actionSimilarGenreWatcher()
 	]);
 }
