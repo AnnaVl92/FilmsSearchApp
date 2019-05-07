@@ -37,11 +37,11 @@ function* actionSimilarGenreWatcher() {
 
 export default function* rootSaga() {
 	yield all([
-		fetchMovies({params: { sort : 'desc', searchBy : 'title', name : '' }}),
+		// fetchMovies({params: { sort : 'desc', searchBy : 'title', name : '' }}),
 		actionWatcher(),
-		fetchMovieById({payload: { id: null }}),
+		// fetchMovieById({payload: { id: null }}),
 		actionIdWatcher(),
-		fetchMoviesBySimilarGenre({params: { searchBy : 'genres', filter : '' }}),
+		// fetchMoviesBySimilarGenre({params: { searchBy : 'genres', filter : '' }}),
 		actionSimilarGenreWatcher()
 	]);
 }

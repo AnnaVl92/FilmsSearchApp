@@ -4,6 +4,7 @@ import FilmsList from '../films/filmsList.jsx';
 import SearchInput from './searchInput.jsx';
 import SearchButton from './searchButton.jsx';
 import Radio from '../radio/radio.jsx';
+import EmptyList from  '../films/EmptyList.jsx';
 import { connect } from "react-redux";
 import { getMovies } from '../../redux/actions';
 import { withRouter } from "react-router-dom";
@@ -100,8 +101,16 @@ class Search extends React.Component {
 						</div>
 					</div>
 				</form>
-				<div className="results">{movies.length} movies found</div>
-				<FilmsList movies={movies} />
+				{
+					movies.length ? (
+						<React.Fragment>
+							<div className="results">{movies.length} movies found</div>
+							<FilmsList movies={movies} />
+						</React.Fragment>
+					) : (
+						<EmptyList />
+					)
+				}
 			</React.Fragment>
 		);
 	}
