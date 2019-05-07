@@ -16,6 +16,7 @@ function* fetchMovieById(payload) {
 	payload = payload.payload && payload.payload;
 	const json = yield fetch(`https://reactjs-cdp.herokuapp.com/movies/${payload}`)
 		.then(response => response.json(), );
+
 	yield put({ type: "MOVIE_BY_ID_RECEIVED", json: json });
 };
 

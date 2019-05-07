@@ -9,19 +9,29 @@ class FilmPage extends React.Component {
 
 	componentDidMount() {
 		this.props.getMovieById(+this.props.match.params.id);
-		// this.setState({
-		// 	selectedMovie:this.props.getMovieById(+this.props.match.params.id),
-		// 	similarMovies:this.props.getMoviesBySimilarGenre(this.state.selectedMovie.genres)
-		// });
+		// this.props.getMoviesBySimilarGenre(this.props.movie.genres[0]);
+		console.log(this.props.movie);
 	};
 
+	componentWillReceiveProps(nextProps) {
+		if (!this.props.movie.hasOwnProperty('genres') && nextProps.movie.hasOwnProperty('genres')){
+			this.props.getMoviesBySimilarGenre(nextProps.movie.genres[0]);
+		};
+	};
+
+	// componentDidUpdate() {
+	// 	console.log(this.props.movie);
+	// 	if(this.props.movie.hasOwnProperty('genres')){
+	// 		console.log(this.props.movie.genres[0]);
+	// 		this.props.getMoviesBySimilarGenre(this.props.movie.genres[0]);
+	// 	};
+	// };
+
 	render() {
-		const { movies, movie, match, getMovieById, getMoviesBySimilarGenre } = this.props;
-		// getMovieById(+match.params.id);
+		const { similarMovies, movie, match, getMovieById, getMoviesBySimilarGenre } = this.props;
 		console.log(match);
-		// console.log(typeof +match.params.id);
 		console.log(this.props);
-		
+		console.log(this.props.movie);
 
 		return (
 			<React.Fragment>
@@ -48,7 +58,7 @@ class FilmPage extends React.Component {
 					</div>
 				</div>
 				<div className="films-similar-genre">Film by {movie.genres} genre</div>
-				<FilmsList movies={movies} />
+				<FilmsList movies={similarMovies} />
 			</React.Fragment>
 		)
 	}
@@ -56,7 +66,7 @@ class FilmPage extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		movies: state.similarMovies,
+		similarMovies: state.similarMovies,
 		movie: state.movie
 	};
 };
