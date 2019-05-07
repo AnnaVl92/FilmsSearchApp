@@ -3,14 +3,12 @@ import React from 'react';
 import FilmsList from '../films/filmsList.jsx';
 import { connect } from "react-redux";
 import { getMovieById, getMoviesBySimilarGenre } from '../../redux/actions';
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class FilmPage extends React.Component {
 
 	componentDidMount() {
 		this.props.getMovieById(+this.props.match.params.id);
-		// this.props.getMoviesBySimilarGenre(this.props.movie.genres[0]);
-		console.log(this.props.movie);
 	};
 
 	componentWillReceiveProps(nextProps) {
@@ -19,24 +17,13 @@ class FilmPage extends React.Component {
 		};
 	};
 
-	// componentDidUpdate() {
-	// 	console.log(this.props.movie);
-	// 	if(this.props.movie.hasOwnProperty('genres')){
-	// 		console.log(this.props.movie.genres[0]);
-	// 		this.props.getMoviesBySimilarGenre(this.props.movie.genres[0]);
-	// 	};
-	// };
-
 	render() {
 		const { similarMovies, movie, match, getMovieById, getMoviesBySimilarGenre } = this.props;
-		console.log(match);
-		console.log(this.props);
-		console.log(this.props.movie);
 
 		return (
 			<React.Fragment>
 				<div className="d-flex flex-row-reverse">
-					<a className="btn btn-primary" href="#">SEARCH</a>
+					<Link to="/" className="btn btn-primary">SEARCH</Link>
 				</div>
 				<div className="row film-page">
 					<div className="col-lg-4">
