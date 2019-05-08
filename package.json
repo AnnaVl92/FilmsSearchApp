@@ -9,7 +9,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "webpack-dev-server": "webpack-dev-server --mode development --open --hot --history-api-fallback",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "dev": "next"
   },
   "author": "Anna Zemliachenko",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "jest-matcher-utils": "^24.7.0",
     "jest-message-util": "^24.7.1",
     "jest-regex-util": "^24.3.0",
+    "next": "^8.1.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.5.0",
     "react-redux": "^6.0.1",
