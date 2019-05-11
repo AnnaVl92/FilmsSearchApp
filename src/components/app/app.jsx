@@ -1,6 +1,6 @@
 import React from 'react';
-import css from './app.css';
-import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import css from './app.css';
+// import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Search from '../search/search.jsx';
 import FilmPage from '../filmPage/filmPage.jsx';
 import Page404 from '../page404/page404.jsx';
