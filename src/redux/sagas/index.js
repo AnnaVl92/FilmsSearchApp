@@ -1,5 +1,6 @@
-import { takeLatest, all, put } from "redux-saga/effects";
+import { takeLatest, all, put, take } from "redux-saga/effects";
 import { getMovies, getMovieId, getMoviesBySimilarGenre } from '../actions';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 
 function* fetchMovies(params) {
 	params = params.params && params.params;
@@ -36,6 +37,8 @@ function* actionSimilarGenreWatcher() {
 };
 
 export default function* rootSaga() {
+	yield take(REHYDRATE);
+	console.log("Rehydrated")
 	yield all([
 		// fetchMovies({params: { sort : 'desc', searchBy : 'title', name : '' }}),
 		actionWatcher(),

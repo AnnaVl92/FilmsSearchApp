@@ -12,6 +12,8 @@ export default function reducer(state = { movies: [], movie: {}, similarMovies: 
 			return { ...state, loading: true };
 		case 'MOVIES_BY_SIMILAR_GENRE_RECEIVED':
 			return { ...state, similarMovies: action.json, loading: false };
+		case 'persist/REHYDRATE':
+    		return action.payload || {}
 		default:
 			return state;
 	}
