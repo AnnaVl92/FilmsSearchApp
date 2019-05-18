@@ -1,5 +1,9 @@
 {
-  "presets": ["@babel/react", ["@babel/preset-env", {"useBuiltIns": false}]],
+  "presets": [
+    "@babel/react",
+    ["@babel/preset-env", {"useBuiltIns": false}],
+    "next/babel"
+  ],
   "plugins": [
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
     ["transform-function-bind"],
@@ -11,6 +15,13 @@
         "helpers": true,
         "regenerator": true,
         "useESModules": false
+      }
+    ],
+    ["styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
       }
     ]
   ]

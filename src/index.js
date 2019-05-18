@@ -4,15 +4,16 @@ import {Provider} from 'react-redux';
 import App from './components/app/app.jsx';
 import { persistor, store } from './redux/store/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
+// import store from './redux/store/store.js';
 import ErrorBoundary from './components/error/errorBoundary.jsx';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<ErrorBoundary>
-			<PersistGate loading={null} persistor={persistor}>
+		<PersistGate loading={null} persistor={persistor}>
+			<ErrorBoundary>
 				<App />
-			</PersistGate>
-		</ErrorBoundary>
+			</ErrorBoundary>
+		</PersistGate>
 	</Provider>,
 	document.getElementById('root')
 );

@@ -5,6 +5,10 @@ import Search from '../search/search.jsx';
 import FilmPage from '../filmPage/filmPage.jsx';
 import Page404 from '../page404/page404.jsx';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+// import {Router, Route, Switch} from 'react-router-dom';
+// import { createMemoryHistory } from 'history';
+
+// const history = createMemoryHistory();
 
 class App extends React.Component {
 	render(){

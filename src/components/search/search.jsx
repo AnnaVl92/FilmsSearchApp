@@ -7,7 +7,7 @@ import Radio from '../radio/radio.jsx';
 import EmptyList from  '../films/EmptyList.jsx';
 import { connect } from "react-redux";
 import { getMovies } from '../../redux/actions';
-import { withRouter } from "react-router-dom";
+//import { withRouter } from "react-router-dom";
 import FilmPage from '../filmPage/filmPage.jsx';
 import queryString from 'query-string';
 
@@ -21,7 +21,7 @@ class Search extends React.Component {
 	};
 
 	componentDidMount() {
-		if (this.props.match.params.query){
+		if (this.props.match && this.props.match.params.query){
 			const params = queryString.parse(this.props.match.params.query);
 			this.props.getMovies(params);
 			console.log(this.state);
@@ -180,7 +180,7 @@ class Search extends React.Component {
 					</div>
 				</form>
 				{
-					movies.length ? (
+					movies && movies.length ? (
 						<React.Fragment>
 							<div className="results">{movies.length} movies found</div>
 							<FilmsList movies={movies} />
@@ -204,4 +204,4 @@ const mapDispatchToProps = {
 	getMovies: getMovies
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

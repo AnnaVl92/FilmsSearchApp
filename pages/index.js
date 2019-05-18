@@ -1,28 +1,26 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import App from '../src/components/app/app.jsx';
-import { persistor, store } from '../src/redux/store/store.js';
-import { PersistGate } from 'redux-persist/integration/react';
+import { connect } from 'react-redux';
+// import { persistor, store } from '../src/redux/store/store.js';
+// import { PersistGate } from 'redux-persist/integration/react';
+import css from '../src/components/app/app.css';
+import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import configureStore from '../src/redux/store/store.js';
 import ErrorBoundary from '../src/components/error/errorBoundary.jsx';
-import fetch from 'isomorphic-fetch';
+import Search from '../src/components/search/search.jsx';
 
-function Index(props) {
-	return (
-		<Provider store={store}>
-			<ErrorBoundary>
-				<PersistGate loading={null} persistor={persistor}>
-					<App />
-				</PersistGate>
-			</ErrorBoundary>
-		</Provider>
-	)
+import Page404 from '../src/components/page404/page404.jsx';
+import FilmList from '../src/components/films/filmsList.jsx';
+import Film from '../src/components/films/film.jsx';
+
+class Index extends React.Component {
+	static getInitialProps({store}) {
+		return { }
+	  }
+	 
+	  render() {
+		return <Search />
+	  }
 };
 
-Index.getInitialProps = async function() {
-	const res = await fetch('https://reactjs-cdp.herokuapp.com/movies');
-	const data = await res.json();
-
-	console.log(res);
-}
-
-export default Index;
+export default connect(state => state)(Index);

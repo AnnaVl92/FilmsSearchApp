@@ -37,8 +37,8 @@ function* actionSimilarGenreWatcher() {
 };
 
 export default function* rootSaga() {
-	yield take(REHYDRATE);
-	console.log("Rehydrated")
+	// yield take(REHYDRATE);
+	// console.log("Rehydrated")
 	yield all([
 		// fetchMovies({params: { sort : 'desc', searchBy : 'title', name : '' }}),
 		actionWatcher(),

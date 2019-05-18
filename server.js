@@ -5,6 +5,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+console.log(app);
+
 app.prepare()
 	.then(() => {
 		const server = express()
@@ -12,6 +14,7 @@ app.prepare()
 		server.get('/film/:id', (req, res) => {
 			const actualPage = '/film';
 			const queryParams = { id: req.params.id };
+			console.log(res);
 			app.render(req, res, actualPage, queryParams);
 		});
 
@@ -21,9 +24,9 @@ app.prepare()
 		})
 
 		server.listen(3000, (err) => {
-			if (err) throw err
-				console.log('> Ready on http://localhost:3000')
-			})
+			if (err) throw err;
+			console.log('> Ready on http://localhost:3000');
+		})
 	})
 .catch((ex) => {
 	console.error(ex.stack)

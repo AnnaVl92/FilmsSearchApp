@@ -3,7 +3,8 @@ import React from 'react';
 import FilmsList from '../films/filmsList.jsx';
 import { connect } from "react-redux";
 import { getMovieById, getMoviesBySimilarGenre } from '../../redux/actions';
-import { Link, withRouter } from "react-router-dom";
+//import { /*Link,*/ withRouter } from "react-router-dom";
+import Link from 'next/link';
 
 class FilmPage extends React.Component {
 
@@ -63,4 +64,4 @@ const mapDispatchToProps = {
 	getMoviesBySimilarGenre: getMoviesBySimilarGenre
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FilmPage)); 
+export default connect(mapStateToProps, mapDispatchToProps)(FilmPage);

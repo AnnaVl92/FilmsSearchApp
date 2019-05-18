@@ -1,4 +1,5 @@
 export default function reducer(state = { movies: [], movie: {}, similarMovies: [] }, action){
+	console.log('reducer')
 	switch (action.type) {
 		case 'GET_MOVIES':
 			return { ...state, loading: true };
