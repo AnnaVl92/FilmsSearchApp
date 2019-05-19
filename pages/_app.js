@@ -20,13 +20,13 @@ const makeStore = (initialState, options) => {
 };
 
 class MyApp extends App {
-	static getInitialProps({Component, ctx}) {
+	static async getInitialProps({Component, ctx}) {
     console.log('MyApp')
     console.trace();
     let pageProps = {}
  
     if (Component.getInitialProps) {
-      pageProps = Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx)
     }
     
     return {pageProps}

@@ -41,6 +41,11 @@ module.exports = {
 			template: "./index.html"
 		}
 	)],
+	optimization: {
+		splitChunks: {
+			chunks: 'all'
+		}
+	},
 	
 	watch: false
 };

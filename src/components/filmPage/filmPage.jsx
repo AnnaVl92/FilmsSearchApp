@@ -9,7 +9,9 @@ import Link from 'next/link';
 class FilmPage extends React.Component {
 
 	componentDidMount() {
-		this.props.getMovieById(+this.props.match.params.id);
+		if (this.props.match){
+			this.props.getMovieById(+this.props.match.params.id);
+		}
 	};
 
 	componentWillReceiveProps(nextProps) {
@@ -24,7 +26,7 @@ class FilmPage extends React.Component {
 		return (
 			<React.Fragment>
 				<div className="d-flex flex-row-reverse">
-					<Link to="/" className="btn btn-primary">SEARCH</Link>
+					<Link href="/"><a className="btn btn-primary">SEARCH</a></Link>
 				</div>
 				<div className="row film-page">
 					<div className="col-lg-4">
