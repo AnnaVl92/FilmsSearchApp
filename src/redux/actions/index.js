@@ -1,6 +1,11 @@
 export const getMovies = (params) => ({
 	type: 'GET_MOVIES',
-	params: params || ({ sortBy: 'release_date', sortOrder : 'asc', searchBy : 'title', name : '' })
+	params: ({
+		sortBy: params.sortBy || 'release_date',
+		sortOrder: params.sortOrder || 'asc',
+		searchBy: params.searchBy || 'title',
+		name: params.name || ''
+	})
 });
 
 export const getMovieById = (movieId) => ({
@@ -10,5 +15,5 @@ export const getMovieById = (movieId) => ({
 
 export const getMoviesBySimilarGenre = (genres) => ({
 	type: 'GET_MOVIES_BY_SIMILAR_GENRE',
-	params: ({ searchBy : 'genres', filter : genres || '' })
+	params: ({ searchBy: 'genres', filter: genres || '' })
 });

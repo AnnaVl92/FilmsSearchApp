@@ -102,7 +102,7 @@ class Search extends React.Component {
 
 	updateQueryString = (params) => {
 		const encodedParams = queryString.stringify(params);
-		this.props.history.push(`/search/${encodedParams}`);
+		this.props.history && this.props.history.push(`/search?${encodedParams}`);
 	}
 
 	render() {
@@ -110,7 +110,7 @@ class Search extends React.Component {
 
 		return (
 			<React.Fragment>
-				<form className="search" onSubmit={(e) => this.handleSubmit(e)}>
+				<form className="search" onSubmit={(e) => this.handleSubmit(e)} action="/search">
 					<div className="form-group row">
 						<div className="col-lg-10">
 							<SearchInput value={this.state.searchValue} onChange={(e) => this.handleChange(e)} />
@@ -124,7 +124,7 @@ class Search extends React.Component {
 							SEARCH BY
 							<Radio 
 								id="searchTitle" 
-								name="searchFilter" 
+								name="searchBy" 
 								value="title" 
 								onChange={this.changeSearchFilter} 
 								labelText="TITLE" 
@@ -132,7 +132,7 @@ class Search extends React.Component {
 							/>
 							<Radio 
 								id="searchGenre" 
-								name="searchFilter" 
+								name="searchBy" 
 								value="genres" 
 								onChange={this.changeSearchFilter} 
 								labelText="GENRE" 
@@ -143,7 +143,7 @@ class Search extends React.Component {
 							Sort by
 							<Radio 
 								id="sortReleaseDate" 
-								name="sort" 
+								name="sortBy" 
 								value="release_date" 
 								onChange={this.chooseSort} 
 								labelText="release date" 
@@ -151,7 +151,7 @@ class Search extends React.Component {
 							/>
 							<Radio 
 								id="sortRating" 
-								name="sort" 
+								name="sortBy" 
 								value="vote_average" 
 								onChange={this.chooseSort} 
 								labelText="rating" 
@@ -162,7 +162,7 @@ class Search extends React.Component {
 							Order
 							<Radio 
 								id="ascOrder" 
-								name="sortByOrder" 
+								name="sortOrder" 
 								value="asc" 
 								onChange={this.chooseSortByOrder} 
 								labelText="asc. order" 
@@ -170,7 +170,7 @@ class Search extends React.Component {
 							/>
 							<Radio 
 								id="descOrder" 
-								name="sortByOrder" 
+								name="sortOrder" 
 								value="desc" 
 								onChange={this.chooseSortByOrder} 
 								labelText="desc. order" 

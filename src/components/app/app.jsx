@@ -20,7 +20,7 @@ class App extends React.Component {
 				<StaticRouter history={history}>
 					<Switch>
 						<Route exact path="/" component={Search}/>
-						<Route exact path="/search/:query" component={Search}/>
+						<Route path="/search/:query" component={Search}/>
 						<Route path="/film/:id" component={FilmPage}/>
 						<Route component={Page404} />
 					</Switch>
@@ -31,7 +31,7 @@ class App extends React.Component {
 				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={Search}/>
-						<Route exact path="/search/:query" component={Search}/>
+						<Route path="/search/:query" component={Search}/>
 						<Route path="/film/:id" component={FilmPage}/>
 						<Route component={Page404} />
 					</Switch>

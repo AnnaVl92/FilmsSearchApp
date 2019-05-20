@@ -4,7 +4,7 @@ function SearchInput (props) {
 	return (
 		<label>
 			Find Your Movie
-			<input type="text" value={props.value} onChange={props.onChange} className="form-control" />
+			<input type="text" name="name" value={props.value} onChange={props.onChange} className="form-control" />
 		</label>
 	);
 };

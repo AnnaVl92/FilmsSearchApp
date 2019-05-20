@@ -18,6 +18,13 @@ app.prepare()
 			app.render(req, res, actualPage, queryParams);
 		});
 
+		server.get('/search/:query', (req, res) => {
+			const actualPage = '/search';
+			const queryParams = { query: req.params.query };
+			console.log(res);
+			app.render(req, res, actualPage, queryParams);
+		});
+
 
 		server.get('*', (req, res) => {
 			return handle(req, res)
