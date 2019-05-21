@@ -13,17 +13,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducer);
  
-// const sagaMiddleware = createSagaMiddleware();
-// export const store = createStore(
-// 	persistedReducer,
-// 	applyMiddleware(sagaMiddleware, logger)
-// );
-// export const persistor = persistStore(store);
-
-// sagaMiddleware.run(rootSaga);
-
 function configureStore(preloadedState) {
-	console.log('configureStore')
 	const sagaMiddleware = createSagaMiddleware();
 
 	const store = createStore(
@@ -42,7 +32,7 @@ export const store = configureStore();
 
 export const persistor = persistStore(store);
 
-export const configureStore1 = configureStore;
+export default configureStore;
 
 
 

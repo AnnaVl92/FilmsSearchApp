@@ -7,8 +7,8 @@ class FilmsList extends React.Component {
 	
 	render() {
 		const movies = (this.props.movies||[]).map((movie) =>
-			<div className="col-md-4">
-				<Link as={`/film/${movie.id}`} href={`/film?id=${movie.id}`} key={movie.id}>
+			<div className="col-md-4" key={movie.id}>
+				<Link as={`/film/${movie.id}`} href={`/film?id=${movie.id}`}>
 					<a className="card film"><Film movie={movie} /></a>
 				</Link>
 			</div>

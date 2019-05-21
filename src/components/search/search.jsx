@@ -4,10 +4,10 @@ import FilmsList from '../films/filmsList.jsx';
 import SearchInput from './searchInput.jsx';
 import SearchButton from './searchButton.jsx';
 import Radio from '../radio/radio.jsx';
-import EmptyList from  '../films/EmptyList.jsx';
+import EmptyList from '../films/EmptyList.jsx';
 import { connect } from "react-redux";
 import { getMovies } from '../../redux/actions';
-//import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import FilmPage from '../filmPage/filmPage.jsx';
 import queryString from 'query-string';
 
@@ -17,58 +17,73 @@ class Search extends React.Component {
 		// filteredMovies: [],
 		searchFilterValue: 'title',
 		sortValue: 'release_date',
-		sortByOrderValue: 'asc'
+		sortByOrderValue: 'asc',
+		searchPerformed:  !process.browser
 	};
 
 	componentDidMount() {
-		if (this.props.match && this.props.match.params.query){
-			const params = queryString.parse(this.props.match.params.query);
+		const urlParams = new URLSearchParams(window.location.search);
+		const name = urlParams.get('name');
+		const searchBy = urlParams.get('searchBy');
+		const sortBy = urlParams.get('sortBy');
+		const sortOrder = urlParams.get('sortOrder');
+		if (name && searchBy) {
+		// if (this.props.match && this.props.match.params.query) {
+			//const params = queryString.parse(this.props.match.params.query);
+			const params = {
+				name,
+				searchBy,
+				sortBy,
+				sortOrder
+			};
+
 			this.props.getMovies(params);
-			console.log(this.state);
+		
 			this.setState({
 				searchValue: params.name,
 				searchFilterValue: params.searchBy,
 				sortValue: params.sortBy,
-				sortByOrderValue: params.sortOrder
+				sortByOrderValue: params.sortOrder,
+				searchPerformed: true
 			});
-			console.log("this.state");
-			console.log(this.state);
-		};
+		}
 	};
 
 	handleChange = e => {
 		//this.props.handleChange();
-		this.setState({searchValue: e.target.value});
+		this.setState({ searchValue: e.target.value });
 	}
 
 	handleSubmit = e => {
 		//this.props.handleChange();
 		e.preventDefault();
 
-		const params = { 
-			sortBy : this.state.sortValue,
-			sortOrder: this.state.sortByOrderValue, 
-			searchBy : this.state.searchFilterValue, 
-			name : this.state.searchValue
+		const params = {
+			sortBy: this.state.sortValue,
+			sortOrder: this.state.sortByOrderValue,
+			searchBy: this.state.searchFilterValue,
+			name: this.state.searchValue
 		};
-		this.props.getMovies(params);	
+
+		this.setState({ searchPerformed: true });
+		this.props.getMovies(params);
 		this.updateQueryString(params);
 
 		// this.setState({
 		// 	filteredMovies,
 		// 	submitHandled: true
-  //   	});
+		//   	});
 		return false;
 	}
 
 	changeSearchFilter = e => {
 		const searchFilterValue = e.target.value;
-		this.setState({searchFilterValue: e.target.value});
-		const params = { 
-			sortBy : this.state.sortValue,
-			sortOrder: this.state.sortByOrderValue, 
-			searchBy : searchFilterValue, 
-			name : this.state.searchValue
+		this.setState({ searchFilterValue: e.target.value });
+		const params = {
+			sortBy: this.state.sortValue,
+			sortOrder: this.state.sortByOrderValue,
+			searchBy: searchFilterValue,
+			name: this.state.searchValue
 		}
 		this.props.getMovies(params);
 		this.updateQueryString(params);
@@ -76,12 +91,12 @@ class Search extends React.Component {
 
 	chooseSort = e => {
 		const sortValue = e.target.value;
-		this.setState({sortValue: sortValue});
-		const params = { 
-			sortBy : sortValue,
-			sortOrder: this.state.sortByOrderValue, 
-			searchBy : this.state.searchFilterValue, 
-			name : this.state.searchValue
+		this.setState({ sortValue: sortValue });
+		const params = {
+			sortBy: sortValue,
+			sortOrder: this.state.sortByOrderValue,
+			searchBy: this.state.searchFilterValue,
+			name: this.state.searchValue
 		};
 		this.props.getMovies(params);
 		this.updateQueryString(params);
@@ -89,12 +104,12 @@ class Search extends React.Component {
 
 	chooseSortByOrder = e => {
 		const sortByOrderValue = e.target.value;
-		this.setState({sortByOrderValue: sortByOrderValue});
-		const params = { 
-			sortBy : this.state.sortValue,
-			sortOrder: sortByOrderValue, 
-			searchBy : this.state.searchFilterValue, 
-			name : this.state.searchValue
+		this.setState({ sortByOrderValue: sortByOrderValue });
+		const params = {
+			sortBy: this.state.sortValue,
+			sortOrder: sortByOrderValue,
+			searchBy: this.state.searchFilterValue,
+			name: this.state.searchValue
 		}
 		this.props.getMovies(params);
 		this.updateQueryString(params);
@@ -122,72 +137,72 @@ class Search extends React.Component {
 					<div className="d-flex justify-content-between">
 						<div className="search-filter d-flex justify-content-between align-items-center form-group">
 							SEARCH BY
-							<Radio 
-								id="searchTitle" 
-								name="searchBy" 
-								value="title" 
-								onChange={this.changeSearchFilter} 
-								labelText="TITLE" 
-								{...(this.state.searchFilterValue == "title" ? {isDefaultChecked: 'true'} : {})} 
+							<Radio
+								id="searchTitle"
+								name="searchBy"
+								value="title"
+								onChange={this.changeSearchFilter}
+								labelText="TITLE"
+								{...(this.state.searchFilterValue == "title" ? { isDefaultChecked: 'true' } : {})}
 							/>
-							<Radio 
-								id="searchGenre" 
-								name="searchBy" 
-								value="genres" 
-								onChange={this.changeSearchFilter} 
-								labelText="GENRE" 
-								{...(this.state.searchFilterValue == "genres" ? {isDefaultChecked: 'true'} : {})} 
+							<Radio
+								id="searchGenre"
+								name="searchBy"
+								value="genres"
+								onChange={this.changeSearchFilter}
+								labelText="GENRE"
+								{...(this.state.searchFilterValue == "genres" ? { isDefaultChecked: 'true' } : {})}
 							/>
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
 							Sort by
-							<Radio 
-								id="sortReleaseDate" 
-								name="sortBy" 
-								value="release_date" 
-								onChange={this.chooseSort} 
-								labelText="release date" 
-								{...(this.state.sortValue == "release_date" ? {isDefaultChecked: 'true'} : {})} 
+							<Radio
+								id="sortReleaseDate"
+								name="sortBy"
+								value="release_date"
+								onChange={this.chooseSort}
+								labelText="release date"
+								{...(this.state.sortValue == "release_date" ? { isDefaultChecked: 'true' } : {})}
 							/>
-							<Radio 
-								id="sortRating" 
-								name="sortBy" 
-								value="vote_average" 
-								onChange={this.chooseSort} 
-								labelText="rating" 
-								{...(this.state.sortValue == "vote_average" ? {isDefaultChecked: 'true'} : {})}  
+							<Radio
+								id="sortRating"
+								name="sortBy"
+								value="vote_average"
+								onChange={this.chooseSort}
+								labelText="rating"
+								{...(this.state.sortValue == "vote_average" ? { isDefaultChecked: 'true' } : {})}
 							/>
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
 							Order
-							<Radio 
-								id="ascOrder" 
-								name="sortOrder" 
-								value="asc" 
-								onChange={this.chooseSortByOrder} 
-								labelText="asc. order" 
-								{...(this.state.sortByOrderValue == "asc" ? {isDefaultChecked: 'true'} : {})} 
+							<Radio
+								id="ascOrder"
+								name="sortOrder"
+								value="asc"
+								onChange={this.chooseSortByOrder}
+								labelText="asc. order"
+								{...(this.state.sortByOrderValue == "asc" ? { isDefaultChecked: 'true' } : {})}
 							/>
-							<Radio 
-								id="descOrder" 
-								name="sortOrder" 
-								value="desc" 
-								onChange={this.chooseSortByOrder} 
-								labelText="desc. order" 
-								{...(this.state.sortByOrderValue == "desc" ? {isDefaultChecked: 'true'} : {})}
+							<Radio
+								id="descOrder"
+								name="sortOrder"
+								value="desc"
+								onChange={this.chooseSortByOrder}
+								labelText="desc. order"
+								{...(this.state.sortByOrderValue == "desc" ? { isDefaultChecked: 'true' } : {})}
 							/>
 						</div>
 					</div>
 				</form>
 				{
-					movies && movies.length ? (
+					this.state.searchPerformed && movies && movies.length ? (
 						<React.Fragment>
 							<div className="results">{movies.length} movies found</div>
 							<FilmsList movies={movies} />
 						</React.Fragment>
 					) : (
-						<EmptyList />
-					)
+							<EmptyList />
+						)
 				}
 			</React.Fragment>
 		);
@@ -196,7 +211,7 @@ class Search extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		movies: state.movies,
+		movies: state.movies
 	};
 };
 

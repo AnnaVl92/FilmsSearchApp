@@ -10,8 +10,6 @@ const SearchPage = () => {
 };
 
 SearchPage.getInitialProps = async ({ store, query }) => {
-    console.log("query");
-    console.log(query);
     store.dispatch(getMovies(query))
 };
 
