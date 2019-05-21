@@ -3,14 +3,13 @@ import css from './app.css';
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { StaticRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Router as NextRouter } from 'next/router';
-// import {Router, Route, Switch} from 'react-router-dom';
+import Search from '../search/search.jsx';
+import FilmPage from '../filmPage/filmPage.jsx';
+import Page404 from '../page404/page404.jsx';
 
 const SearchLazy = lazy(() => import('../search/search.jsx'));
 const FilmPageLazy = lazy(() => import('../filmPage/filmPage.jsx'));
 const Page404Lazy = lazy(() => import('../page404/page404.jsx'));
-import Search from '../search/search.jsx';
-import FilmPage from '../filmPage/filmPage.jsx';
-import Page404 from '../page404/page404.jsx';
 
 const isServer = !process.browser;
 
