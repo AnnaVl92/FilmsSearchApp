@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class ErrorBoundary extends React.Component {
 	constructor(props) {
@@ -12,23 +11,23 @@ class ErrorBoundary extends React.Component {
 
 	componentDidCatch(error, errorInfo) {
 		this.setState({
-			error: error,
-			errorInfo: errorInfo
+			error,
+			errorInfo
 		});
 	}
 
 	render() {
 		if (this.state.errorInfo) {
-    	return (
-    		<React.Fragment>
-    			<div>{this.state.error && this.state.error.toString()}</div>
-    			<div>{this.state.errorInfo.componentStack}</div>
-    		</React.Fragment>
-    	)
-    }
+			return (
+				<React.Fragment>
+					<div>{this.state.error && this.state.error.toString()}</div>
+					<div>{this.state.errorInfo.componentStack}</div>
+				</React.Fragment>
+			);
+		}
 
-    return this.props.children; 
-  }
+		return this.props.children;
+	}
 }
 
 export default ErrorBoundary;

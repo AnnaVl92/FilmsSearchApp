@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Radio (props) {
+function Radio(props) {
 	return (
 		<div className="form-check">
 			<input className="form-check-input" id={props.id} type="radio" value={props.value} name={props.name} onChange={props.onChange} defaultChecked={props.isDefaultChecked} />
@@ -9,6 +9,6 @@ function Radio (props) {
 			</label>
 		</div>
 	);
-};
+}
 
 export default Radio;

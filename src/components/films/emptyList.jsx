@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EmptyList () {
+function EmptyList() {
 	return (
 		<div>
 			Start searching films

@@ -2,8 +2,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
-import reducer from '../reducers';
 import { logger } from 'redux-logger';
+import reducer from '../reducers';
 import rootSaga from '../sagas';
 
 const persistConfig = {
@@ -12,7 +12,7 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);
- 
+
 function configureStore(preloadedState) {
 	const sagaMiddleware = createSagaMiddleware();
 
@@ -25,7 +25,7 @@ function configureStore(preloadedState) {
 	store.sagaTask = sagaMiddleware.run(rootSaga);
 
 	return store;
-};
+}
 
 
 export const store = configureStore();
@@ -33,6 +33,3 @@ export const store = configureStore();
 export const persistor = persistStore(store);
 
 export default configureStore;
-
-
-

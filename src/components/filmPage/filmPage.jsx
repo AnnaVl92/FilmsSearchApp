@@ -1,26 +1,29 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-shadow */
 import React from 'react';
 // import movies from '../../movies.json';
-import FilmsList from '../films/filmsList.jsx';
-import { connect } from "react-redux";
-import { getMovieById, getMoviesBySimilarGenre } from '../../redux/actions';
-//import { /*Link,*/ withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 import Link from 'next/link';
+import FilmsList from '../films/filmsList.jsx';
+import { getMovieById, getMoviesBySimilarGenre } from '../../redux/actions';
+// import { /*Link,*/ withRouter } from "react-router-dom";
 
 class FilmPage extends React.Component {
-
 	componentDidMount() {
-		if (this.props.match){
+		if (this.props.match) {
 			this.props.getMovieById(+this.props.match.params.id);
 		}
-	};
+	}
 
 	componentWillReceiveProps(nextProps) {
-		if (!this.props.movie.hasOwnProperty('genres') && nextProps.movie.hasOwnProperty('genres')){
+		// eslint-disable-next-line no-prototype-builtins
+		if (!this.props.movie.Object.prototype.hasOwnProperty('genres') && nextProps.movie.hasOwnProperty('genres')) {
 			this.props.getMoviesBySimilarGenre(nextProps.movie.genres[0]);
-		};
-	};
+		}
+	}
 
 	render() {
+		// eslint-disable-next-line no-unused-vars
 		const { similarMovies, movie, match, getMovieById, getMoviesBySimilarGenre } = this.props;
 
 		return (
@@ -47,23 +50,23 @@ class FilmPage extends React.Component {
 						<p>{movie.overview}</p>
 					</div>
 				</div>
-				<div className="films-similar-genre">Film by {movie.genres} genre</div>
+				<div className="films-similar-genre">
+					Film by {movie.genres} genre
+				</div>
 				<FilmsList movies={similarMovies} />
 			</React.Fragment>
-		)
+		);
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		similarMovies: state.similarMovies,
-		movie: state.movie
-	};
-};
+const mapStateToProps = state => ({
+	similarMovies: state.similarMovies,
+	movie: state.movie
+});
 
 const mapDispatchToProps = {
-	getMovieById: getMovieById,
-	getMoviesBySimilarGenre: getMoviesBySimilarGenre
+	getMovieById,
+	getMoviesBySimilarGenre
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmPage);

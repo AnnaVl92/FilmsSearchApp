@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Film (props) {
-	const movie = props.movie;
+function Film(props) {
+	const { movie } = props;
 
 	return (
 		<React.Fragment>

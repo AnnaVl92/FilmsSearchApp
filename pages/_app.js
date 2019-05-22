@@ -1,6 +1,6 @@
 import React from 'react';
-import {createStore} from "redux";
-import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { store } from '../src/redux/store/store.js';
 import configureStore from '../src/redux/store/store.js';
 import App, { Container } from 'next/app';
@@ -10,19 +10,17 @@ import Head from 'next/head';
 import reducer from '../src/redux/reducers';
 import ErrorBoundary from '../src/components/error/errorBoundary.jsx';
 
-const makeStore = (initialState, options) => {
-  return createStore(reducer, initialState);
-};
+const makeStore = initialState => createStore(reducer, initialState);
 
 class MyApp extends App {
-	static async getInitialProps({Component, ctx}) {
-    let pageProps = {}
+	static async getInitialProps({ Component, ctx }) {
+    let pageProps = {};
  
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
     
-    return {pageProps}
+    return { pageProps };
   }
  
   render() {
@@ -38,5 +36,5 @@ class MyApp extends App {
     )
   }
 }
- 
+
 export default withRedux(configureStore)(withReduxSaga(MyApp));

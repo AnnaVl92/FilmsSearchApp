@@ -4,7 +4,7 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -21,21 +21,55 @@
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+        "consistent-return": ["off"],
+        "linebreak-style": 0,
+        "implicit-arrow-linebreak": ["off"],
+        "function-paren-newline": ["off"],
+        "max-len": ["error", {
+        "code": 140,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreUrls": true
+        }],
+        "indent": [2, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
+        "no-tabs": 0,
+        "react/prop-types": 0,
+        "react/jsx-indent": [2, "tab"],
+        "react/jsx-indent-props": [2, "tab"],
+        "comma-dangle": ["error", "never"],
         "quotes": [
             "error",
             "single"
         ],
+        "object-curly-newline": ["off"],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "react/jsx-tag-spacing": ["error", {
+          "beforeSelfClosing": "always"
+        }],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "import/no-unresolved": ["off"],
+        "import/no-extraneous-dependencies": ["off"],
+        "import/extensions": ["off"],
+        "import/prefer-default-export": ["off"],
+        "import/no-webpack-loader-syntax": ["off"],
+        "import/no-cycle": ["off"],
+        "import/order": ["off"],
+        "import/no-named-as-default": ["off"],
+        "import/no-named-as-default-member": ["off"],
+        "import/named": ["off"],
+        "import/no-duplicates": ["off"],
+        "import/no-self-import": ["off"],
+        "no-console": ["off"],
+        "no-confusing-arrow": ["off"],
+        "react/no-array-index-key": ["off"],
+        "react/forbid-prop-types": ["off"],
+        "react/destructuring-assignment": ["off"],
+        "react/jsx-one-expression-per-line": ["off"],
+        "react/jsx-wrap-multilines": ["error", {
+        "arrow": "ignore"
+        }]
     }
 }

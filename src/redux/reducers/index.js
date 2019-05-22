@@ -1,4 +1,4 @@
-export default function reducer(state = { movies: [], movie: {}, similarMovies: [] }, action){
+export default function reducer(state = { movies: [], movie: {}, similarMovies: [] }, action) {
 	switch (action.type) {
 		case 'GET_MOVIES':
 			return { ...state, loading: true };
@@ -13,8 +13,8 @@ export default function reducer(state = { movies: [], movie: {}, similarMovies: 
 		case 'MOVIES_BY_SIMILAR_GENRE_RECEIVED':
 			return { ...state, similarMovies: action.json, loading: false };
 		case 'persist/REHYDRATE':
-    		return action.payload || {}
+    		return action.payload || {};
 		default:
 			return state;
 	}
-};
+}

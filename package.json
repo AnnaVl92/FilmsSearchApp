@@ -13,7 +13,8 @@
     "start": "node server.js",
     "dev": "next",
     "next-build": "next build",
-    "next-start": "next start"
+    "next-start": "next start",
+    "lint": "eslint --fix src/**/*.{js,jsx}"
   },
   "author": "Anna Zemliachenko",
   "license": "ISC",
@@ -75,7 +76,10 @@
     "enzyme-adapter-react-16": "^1.13.0",
     "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.8",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^3.2.0",
