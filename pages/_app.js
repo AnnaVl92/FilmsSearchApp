@@ -14,27 +14,27 @@ const makeStore = initialState => createStore(reducer, initialState);
 
 class MyApp extends App {
 	static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
- 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
-    
-    return { pageProps };
-  }
- 
-  render() {
-    const {Component, pageProps, store} = this.props
-    return (
-      <Container>
-        <Provider store={store}>
+		let pageProps = {};
+
+		if (Component.getInitialProps) {
+			pageProps = await Component.getInitialProps(ctx)
+		}
+
+		return { pageProps };
+	}
+
+	render() {
+		const { Component, pageProps, store } = this.props;
+		return (
+			<Container>
+				<Provider store={store}>
 					<ErrorBoundary>
-          	<Component {...pageProps} />
+						<Component {...pageProps} />
 					</ErrorBoundary>
-        </Provider>
-      </Container>
-    )
-  }
+				</Provider>
+			</Container>
+		);
+	}
 }
 
 export default withRedux(configureStore)(withReduxSaga(MyApp));

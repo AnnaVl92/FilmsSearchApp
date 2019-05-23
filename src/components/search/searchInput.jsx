@@ -2,6 +2,7 @@ import React from 'react';
 
 function SearchInput(props) {
 	return (
+		// eslint-disable-next-line jsx-a11y/label-has-for
 		<label>
 			Find Your Movie
 			<input type="text" name="name" value={props.value} onChange={props.onChange} className="form-control" />

@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 // import movies from '../../movies.json';
 import { connect } from 'react-redux';
@@ -122,9 +123,8 @@ class Search extends React.Component {
 	}
 
 	render() {
-		const {
-			movies, getMovies, match, history
-		} = this.props;
+		// eslint-disable-next-line no-unused-vars
+		const { movies, getMovies, match, history } = this.props;
 
 		return (
 			<React.Fragment>
@@ -146,7 +146,7 @@ class Search extends React.Component {
 								value="title"
 								onChange={this.changeSearchFilter}
 								labelText="TITLE"
-								{...(this.state.searchFilterValue == 'title' ? { isDefaultChecked: 'true' } : {})}
+								{...(this.state.searchFilterValue === 'title' ? { isDefaultChecked: 'true' } : {})}
 							/>
 							<Radio
 								id="searchGenre"
@@ -154,7 +154,7 @@ class Search extends React.Component {
 								value="genres"
 								onChange={this.changeSearchFilter}
 								labelText="GENRE"
-								{...(this.state.searchFilterValue == 'genres' ? { isDefaultChecked: 'true' } : {})}
+								{...(this.state.searchFilterValue === 'genres' ? { isDefaultChecked: 'true' } : {})}
 							/>
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
@@ -165,7 +165,7 @@ class Search extends React.Component {
 								value="release_date"
 								onChange={this.chooseSort}
 								labelText="release date"
-								{...(this.state.sortValue == 'release_date' ? { isDefaultChecked: 'true' } : {})}
+								{...(this.state.sortValue === 'release_date' ? { isDefaultChecked: 'true' } : {})}
 							/>
 							<Radio
 								id="sortRating"
@@ -173,7 +173,7 @@ class Search extends React.Component {
 								value="vote_average"
 								onChange={this.chooseSort}
 								labelText="rating"
-								{...(this.state.sortValue == 'vote_average' ? { isDefaultChecked: 'true' } : {})}
+								{...(this.state.sortValue === 'vote_average' ? { isDefaultChecked: 'true' } : {})}
 							/>
 						</div>
 						<div className="sort d-flex align-items-start justify-content-between">
@@ -184,7 +184,7 @@ class Search extends React.Component {
 								value="asc"
 								onChange={this.chooseSortByOrder}
 								labelText="asc. order"
-								{...(this.state.sortByOrderValue == 'asc' ? { isDefaultChecked: 'true' } : {})}
+								{...(this.state.sortByOrderValue === 'asc' ? { isDefaultChecked: 'true' } : {})}
 							/>
 							<Radio
 								id="descOrder"
@@ -192,7 +192,7 @@ class Search extends React.Component {
 								value="desc"
 								onChange={this.chooseSortByOrder}
 								labelText="desc. order"
-								{...(this.state.sortByOrderValue == 'desc' ? { isDefaultChecked: 'true' } : {})}
+								{...(this.state.sortByOrderValue === 'desc' ? { isDefaultChecked: 'true' } : {})}
 							/>
 						</div>
 					</div>

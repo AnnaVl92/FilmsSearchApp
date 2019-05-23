@@ -1,7 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import SearchInput from './searchInput.jsx';
-import SearchButton from './searchButton.jsx';
 
 describe('SearchInput', () => {
 	itx('check onChange', () => {

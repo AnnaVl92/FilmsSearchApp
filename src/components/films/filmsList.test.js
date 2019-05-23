@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import FilmsList from './filmsList.jsx';
-import expect from 'expect';
 
-// eslint-disable-next-line no-undef
 itx('renders correctly', () => {
 	const mockFilms = [{
 		id: 1,

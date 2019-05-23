@@ -17,7 +17,7 @@ class FilmPage extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		// eslint-disable-next-line no-prototype-builtins
-		if (!this.props.movie.Object.prototype.hasOwnProperty('genres') && nextProps.movie.hasOwnProperty('genres')) {
+		if (!this.props.movie.hasOwnProperty('genres') && nextProps.movie.hasOwnProperty('genres')) {
 			this.props.getMoviesBySimilarGenre(nextProps.movie.genres[0]);
 		}
 	}
