@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 
 const FilmTitle = ({ title }) => (
 	<div>
-Film Title:
-		{title}
+		Film Title: {title}
 	</div>
 );
 

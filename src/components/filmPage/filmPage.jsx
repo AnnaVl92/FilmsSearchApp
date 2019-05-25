@@ -1,3 +1,4 @@
+// @flow
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-shadow */
 import React from 'react';
@@ -8,7 +9,15 @@ import FilmsList from '../films/filmsList.jsx';
 import { getMovieById, getMoviesBySimilarGenre } from '../../redux/actions';
 // import { /*Link,*/ withRouter } from "react-router-dom";
 
-class FilmPage extends React.Component {
+type FilmPageProps = {
+	similarMovies: Array<Object>,
+	getMovieById: Function,
+	getMoviesBySimilarGenre: Function,
+	match: Object,
+	movie: Object
+};
+
+class FilmPage extends React.Component<FilmPageProps> {
 	componentDidMount() {
 		if (this.props.match) {
 			this.props.getMovieById(+this.props.match.params.id);

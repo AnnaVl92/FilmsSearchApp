@@ -1,6 +1,12 @@
+// @flow
 import React from 'react';
 
-function SearchInput(props) {
+type SearchInputProps = {
+	value: string,
+	onChange: Function
+};
+
+function SearchInput(props: SearchInputProps) {
 	return (
 		// eslint-disable-next-line jsx-a11y/label-has-for
 		<label>

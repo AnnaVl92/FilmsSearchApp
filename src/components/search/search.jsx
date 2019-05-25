@@ -1,3 +1,4 @@
+// @flow
 /* eslint-disable no-shadow */
 import React from 'react';
 // import movies from '../../movies.json';
@@ -11,8 +12,23 @@ import EmptyList from '../films/EmptyList.jsx';
 import { getMovies } from '../../redux/actions';
 // import { withRouter } from "react-router-dom";
 
-class Search extends React.Component {
-	state = {
+type SearchProps = {
+	movies: Array<Object>,
+	getMovies: Function,
+	match: Object,
+	history: Object
+};
+
+type SearchState = {
+	searchValue: string,
+	searchFilterValue: string,
+	sortValue: string | null,
+	sortByOrderValue: string | null,
+	searchPerformed: boolean
+}
+
+class Search extends React.Component<SearchProps, SearchState> {
+	state: SearchState = {
 		searchValue: '',
 		// filteredMovies: [],
 		searchFilterValue: 'title',

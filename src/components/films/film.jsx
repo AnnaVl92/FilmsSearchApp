@@ -1,6 +1,16 @@
+// @flow
 import React from 'react';
 
-function Film(props) {
+type FilmProps = {
+	movie: {
+		title: string,
+		poster_path: string,
+		release_date: string,
+		genres: Array<string>
+	}
+};
+
+function Film(props: FilmProps) {
 	const { movie } = props;
 
 	return (
