@@ -14,7 +14,7 @@
     "dev": "next",
     "next-build": "next build",
     "next-start": "next start",
-    "lint": "eslint --fix src/**/*.{js,jsx}",
+    "eslint": "eslint --fix src/**/*.{js,jsx}",
     "storybook": "start-storybook"
   },
   "author": "Anna Zemliachenko",
@@ -65,6 +65,7 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-es2017": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^24.8.0",

@@ -37,6 +37,7 @@
             "controlComponents": ["CustomInput"],
             "depth": 3
         }],
+        "react/no-unescaped-entities": 0,
         "indent": [2, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
         "no-tabs": 0,
         "react/prop-types": 0,

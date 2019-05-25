@@ -203,7 +203,7 @@ class Search extends React.Component {
 							<div className="results">
 								{movies.length}
 								{' '}
-movies found
+								movies found
 							</div>
 							<FilmsList movies={movies} />
 						</React.Fragment>

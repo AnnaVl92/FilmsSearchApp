@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Film from '../src/components/films/film.jsx';
+import Radio from '../src/components/radio/radio.jsx';
+import { action } from '@storybook/addon-actions';
 
 const movie = {
 	title: 'Star Trek: Insurrection',
@@ -12,3 +14,23 @@ const movie = {
 storiesOf('Film', module).add('with film', () => (
 	<Film movie={movie} />
 ));
+
+storiesOf('Radio', module)
+	.add('with search by', () => (
+		<React.Fragment>
+			<Radio
+				id="searchTitle"
+				name="searchBy"
+				value="title"
+				onChange={action('onChange')}
+				labelText="TITLE"
+			/>
+			<Radio
+				id="searchGenre"
+				name="searchBy"
+				value="genres"
+				onChange={action('onChange')}
+				labelText="GENRE"
+			/>
+		</React.Fragment>
+	));
