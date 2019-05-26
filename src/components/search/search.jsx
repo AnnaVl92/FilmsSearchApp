@@ -12,6 +12,7 @@ import { getMovies } from '../../redux/actions';
 // import { withRouter } from "react-router-dom";
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import { RadioLabel, Results } from './search.styles.js';
+import getMoviesData from '../../selectors/getMoviesData.js';
 
 type SearchProps = {
 	movies: Array<Object>,
@@ -31,7 +32,6 @@ type SearchState = {
 class Search extends React.Component<SearchProps, SearchState> {
 	state: SearchState = {
 		searchValue: '',
-		// filteredMovies: [],
 		searchFilterValue: 'title',
 		sortValue: 'release_date',
 		sortByOrderValue: 'asc',
@@ -230,9 +230,7 @@ class Search extends React.Component<SearchProps, SearchState> {
 	}
 }
 
-const mapStateToProps = state => ({
-	movies: state.movies
-});
+const mapStateToProps = state => getMoviesData(state);
 
 const mapDispatchToProps = {
 	getMovies

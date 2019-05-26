@@ -3,12 +3,14 @@ import styled from 'styled-components';
 export const SearchLinkContainer = styled.div`
     display: flex;
     flex-direction: row-reverse;
+    margin-top: 10px;
 `;
 
 export const SearchLink = styled.a`
     display: inline-block;
     color: #fff !important;
     background-color: #007bff;
+    border-radius: 4px;
     text-align: center;
     vertical-align: middle;
     font-size: 16px;

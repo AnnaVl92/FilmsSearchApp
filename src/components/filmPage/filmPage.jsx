@@ -16,6 +16,7 @@ import {
 	FilmPageDuration,
 	FilmsSimilarGenre
 } from './filmPage.styles.js';
+import getFilmData from '../../selectors/getFilmData.js';
 
 type FilmPageProps = {
 	similarMovies: Array<Object>,
@@ -76,10 +77,7 @@ class FilmPage extends React.Component<FilmPageProps> {
 	}
 }
 
-const mapStateToProps = state => ({
-	similarMovies: state.similarMovies,
-	movie: state.movie
-});
+const mapStateToProps = state => getFilmData(state);
 
 const mapDispatchToProps = {
 	getMovieById,
