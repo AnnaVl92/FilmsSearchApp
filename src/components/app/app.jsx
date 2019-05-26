@@ -6,8 +6,6 @@ import {
 	Switch
 } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
-import css from './app.css';
-// eslint-disable-next-line no-unused-vars
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import Search from '../search/search';

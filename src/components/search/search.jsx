@@ -11,6 +11,8 @@ import Radio from '../radio/radio.jsx';
 import EmptyList from '../films/EmptyList.jsx';
 import { getMovies } from '../../redux/actions';
 // import { withRouter } from "react-router-dom";
+import { Container, Row, Col, Form } from 'react-bootstrap';
+import { RadioLabel, Results } from './search.styles.js';
 
 type SearchProps = {
 	movies: Array<Object>,
@@ -143,91 +145,96 @@ class Search extends React.Component<SearchProps, SearchState> {
 		const { movies, getMovies, match, history } = this.props;
 
 		return (
-			<React.Fragment>
-				<form className="search" onSubmit={e => this.handleSubmit(e)} action="/search">
-					<div className="form-group row">
-						<div className="col-lg-10">
-							<SearchInput value={this.state.searchValue} onChange={e => this.handleChange(e)} />
-						</div>
-						<div className="col-lg-2">
-							<SearchButton />
-						</div>
-					</div>
-					<div className="d-flex justify-content-between">
-						<div className="search-filter d-flex justify-content-between align-items-center form-group">
-							SEARCH BY
-							<Radio
-								id="searchTitle"
-								name="searchBy"
-								value="title"
-								onChange={this.changeSearchFilter}
-								labelText="TITLE"
-								{...(this.state.searchFilterValue === 'title' ? { isDefaultChecked: 'true' } : {})}
-							/>
-							<Radio
-								id="searchGenre"
-								name="searchBy"
-								value="genres"
-								onChange={this.changeSearchFilter}
-								labelText="GENRE"
-								{...(this.state.searchFilterValue === 'genres' ? { isDefaultChecked: 'true' } : {})}
-							/>
-						</div>
-						<div className="sort d-flex align-items-start justify-content-between">
-							Sort by
-							<Radio
-								id="sortReleaseDate"
-								name="sortBy"
-								value="release_date"
-								onChange={this.chooseSort}
-								labelText="release date"
-								{...(this.state.sortValue === 'release_date' ? { isDefaultChecked: 'true' } : {})}
-							/>
-							<Radio
-								id="sortRating"
-								name="sortBy"
-								value="vote_average"
-								onChange={this.chooseSort}
-								labelText="rating"
-								{...(this.state.sortValue === 'vote_average' ? { isDefaultChecked: 'true' } : {})}
-							/>
-						</div>
-						<div className="sort d-flex align-items-start justify-content-between">
-							Order
-							<Radio
-								id="ascOrder"
-								name="sortOrder"
-								value="asc"
-								onChange={this.chooseSortByOrder}
-								labelText="asc. order"
-								{...(this.state.sortByOrderValue === 'asc' ? { isDefaultChecked: 'true' } : {})}
-							/>
-							<Radio
-								id="descOrder"
-								name="sortOrder"
-								value="desc"
-								onChange={this.chooseSortByOrder}
-								labelText="desc. order"
-								{...(this.state.sortByOrderValue === 'desc' ? { isDefaultChecked: 'true' } : {})}
-							/>
-						</div>
-					</div>
-				</form>
+			<Container fluid>
+				<Form onSubmit={e => this.handleSubmit(e)} action="/search">
+					<Form.Group>
+						<h1>Find Your Movie</h1>
+						<Row>
+							<Col lg={10}>
+								<SearchInput value={this.state.searchValue} onChange={e => this.handleChange(e)} />
+							</Col>
+							<Col lg={2}>
+								<SearchButton />
+							</Col>
+						</Row>
+					</Form.Group>
+					<Form.Group>
+						<Row>
+							<Col lg={4}>
+								<RadioLabel>SEARCH BY</RadioLabel>
+								<Radio
+									id="searchTitle"
+									name="searchBy"
+									value="title"
+									onChange={this.changeSearchFilter}
+									labelText="TITLE"
+									{...(this.state.searchFilterValue === 'title' ? { isDefaultChecked: 'true' } : {})}
+								/>
+								<Radio
+									id="searchGenre"
+									name="searchBy"
+									value="genres"
+									onChange={this.changeSearchFilter}
+									labelText="GENRE"
+									{...(this.state.searchFilterValue === 'genres' ? { isDefaultChecked: 'true' } : {})}
+								/>
+							</Col>
+							<Col lg={4}>
+								<RadioLabel>Sort by</RadioLabel>
+								<Radio
+									id="sortReleaseDate"
+									name="sortBy"
+									value="release_date"
+									onChange={this.chooseSort}
+									labelText="release date"
+									{...(this.state.sortValue === 'release_date' ? { isDefaultChecked: 'true' } : {})}
+								/>
+								<Radio
+									id="sortRating"
+									name="sortBy"
+									value="vote_average"
+									onChange={this.chooseSort}
+									labelText="rating"
+									{...(this.state.sortValue === 'vote_average' ? { isDefaultChecked: 'true' } : {})}
+								/>
+							</Col>
+							<Col lg={4}>
+								<RadioLabel>Order</RadioLabel>
+								<Radio
+									id="ascOrder"
+									name="sortOrder"
+									value="asc"
+									onChange={this.chooseSortByOrder}
+									labelText="asc. order"
+									{...(this.state.sortByOrderValue === 'asc' ? { isDefaultChecked: 'true' } : {})}
+								/>
+								<Radio
+									id="descOrder"
+									name="sortOrder"
+									value="desc"
+									onChange={this.chooseSortByOrder}
+									labelText="desc. order"
+									{...(this.state.sortByOrderValue === 'desc' ? { isDefaultChecked: 'true' } : {})}
+								/>
+							</Col>
+						</Row>
+					</Form.Group>
+				</Form>
 				{
 					this.state.searchPerformed && movies && movies.length ? (
 						<React.Fragment>
-							<div className="results">
+							<Results>
 								{movies.length}
 								{' '}
 								movies found
-							</div>
+							</Results>
 							<FilmsList movies={movies} />
 						</React.Fragment>
 					) : (
 						<EmptyList />
 					)
 				}
-			</React.Fragment>
+			</Container>
 		);
 	}
 }

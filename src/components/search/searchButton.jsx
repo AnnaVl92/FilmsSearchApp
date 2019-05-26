@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 function SearchButton() {
 	return (
-		<button type="submit" className="search-button btn btn-primary">Search</button>
+		<Button variant="primary" type="submit">Search</Button>
 	);
 }
 

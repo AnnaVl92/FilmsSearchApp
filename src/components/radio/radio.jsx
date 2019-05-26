@@ -1,6 +1,6 @@
 // @flow
-/* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
+import { Form } from 'react-bootstrap';
 
 type RadioProps = {
 	id: string,
@@ -13,12 +13,16 @@ type RadioProps = {
 
 function Radio(props: RadioProps) {
 	return (
-		<div className="form-check">
-			<input className="form-check-input" id={props.id} type="radio" value={props.value} name={props.name} onChange={props.onChange} defaultChecked={props.isDefaultChecked} />
-			<label className="form-check-label" htmlFor={props.id}>
-				{props.labelText}
-			</label>
-		</div>
+		<Form.Check
+			inline
+			label={props.labelText}
+			id={props.id}
+			type="radio"
+			value={props.value}
+			name={props.name}
+			onChange={props.onChange}
+			defaultChecked={props.isDefaultChecked}
+		/>
 	);
 }
 

@@ -3,7 +3,6 @@ import FilmPage from '../src/components/filmPage/filmPage.jsx';
 import { connect } from 'react-redux';
 import { getMovieById, getMoviesBySimilarGenre } from '../src/redux/actions';
 import fetch from 'isomorphic-fetch';
-import css from '../src/components/app/app.css';
 import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const Film = () => <FilmPage />;

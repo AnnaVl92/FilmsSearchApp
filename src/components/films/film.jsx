@@ -1,5 +1,7 @@
 // @flow
 import React from 'react';
+import { Card } from 'react-bootstrap';
+import { FilmImageContainer } from './films.styles.js';
 
 type FilmProps = {
 	movie: {
@@ -14,16 +16,16 @@ function Film(props: FilmProps) {
 	const { movie } = props;
 
 	return (
-		<React.Fragment>
-			<div className="film-img-cnt">
-				<img className="card-img-top" src={movie.poster_path} alt="" />
-			</div>
-			<div className="card-body">
-				<h2 className="card-title">{movie.title}</h2>
-				<p className="film-year">{movie.release_date}</p>
-				<p className="film-genre">{movie.genres.join()}</p>
-			</div>
-		</React.Fragment>
+		<Card>
+			<FilmImageContainer>
+				<Card.Img variant="top" src={movie.poster_path} alt="" />
+			</FilmImageContainer>
+			<Card.Body>
+				<h2>{movie.title}</h2>
+				<p>{movie.release_date}</p>
+				<p>{movie.genres.join()}</p>
+			</Card.Body>
+		</Card>
 	);
 }
 

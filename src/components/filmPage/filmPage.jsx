@@ -1,13 +1,21 @@
 // @flow
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-shadow */
 import React from 'react';
 // import movies from '../../movies.json';
 import { connect } from 'react-redux';
-import Link from 'next/link';
 import FilmsList from '../films/filmsList.jsx';
 import { getMovieById, getMoviesBySimilarGenre } from '../../redux/actions';
 // import { /*Link,*/ withRouter } from "react-router-dom";
+import { Container, Row, Col, Badge } from 'react-bootstrap';
+import {
+	SearchLinkContainer,
+	SearchLink,
+	FilmPageImg,
+	FilmPageTitle,
+	FilmPageRelease,
+	FilmPageDuration,
+	FilmsSimilarGenre
+} from './filmPage.styles.js';
 
 type FilmPageProps = {
 	similarMovies: Array<Object>,
@@ -36,34 +44,34 @@ class FilmPage extends React.Component<FilmPageProps> {
 		const { similarMovies, movie, match, getMovieById, getMoviesBySimilarGenre } = this.props;
 
 		return (
-			<React.Fragment>
-				<div className="d-flex flex-row-reverse">
-					<Link href="/"><a className="btn btn-primary">SEARCH</a></Link>
-				</div>
-				<div className="row film-page">
-					<div className="col-lg-4">
-						<img className="film-page-img" src={movie.poster_path} alt="" />
-					</div>
-					<div className="col-lg-8">
-						<h2>
-							{movie.title}
-							<span className="film-badge badge badge-success">
+			<Container fluid>
+				<SearchLinkContainer>
+					<SearchLink href="/">SEARCH</SearchLink>
+				</SearchLinkContainer>
+				<Row>
+					<Col lg={4}>
+						<FilmPageImg className="film-page-img" src={movie.poster_path} alt="" />
+					</Col>
+					<Col lg={8}>
+						<h1>
+							<FilmPageTitle>{movie.title}</FilmPageTitle>
+							<Badge variant="success">
 								{movie.vote_average}
-							</span>
-						</h2>
+							</Badge>
+						</h1>
 						<p>{movie.genres}</p>
-						<p className="font-weight-bold">
+						<FilmPageRelease>
 							{movie.release_date}
-							<span className="film-page-duration">{movie.runtime}</span>
-						</p>
+							<FilmPageDuration>{movie.runtime} min</FilmPageDuration>
+						</FilmPageRelease>
 						<p>{movie.overview}</p>
-					</div>
-				</div>
-				<div className="films-similar-genre">
+					</Col>
+				</Row>
+				<FilmsSimilarGenre>
 					Film by {movie.genres} genre
-				</div>
+				</FilmsSimilarGenre>
 				<FilmsList movies={similarMovies} />
-			</React.Fragment>
+			</Container>
 		);
 	}
 }
