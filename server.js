@@ -9,7 +9,7 @@ console.log(app);
 
 app.prepare()
 	.then(() => {
-		const server = express()
+		const server = express();
 
 		server.get('/film/:id', (req, res) => {
 			const actualPage = '/film';
@@ -26,16 +26,13 @@ app.prepare()
 		});
 
 
-		server.get('*', (req, res) => {
-			return handle(req, res)
-		})
+		server.get('*', (req, res) => handle(req, res));
 
 		server.listen(3000, (err) => {
 			if (err) throw err;
 			console.log('> Ready on http://localhost:3000');
-		})
-	})
-.catch((ex) => {
-	console.error(ex.stack)
-	process.exit(1)
-})
+		});
+	}).catch((ex) => {
+		console.error(ex.stack);
+		process.exit(1);
+	});

@@ -1,7 +1,6 @@
 // @flow
 /* eslint-disable no-shadow */
 import React from 'react';
-// import movies from '../../movies.json';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
 import FilmsList from '../films/filmsList.jsx';
@@ -46,8 +45,6 @@ class Search extends React.Component<SearchProps, SearchState> {
 		const sortBy = urlParams.get('sortBy');
 		const sortOrder = urlParams.get('sortOrder');
 		if (name && searchBy) {
-		// if (this.props.match && this.props.match.params.query) {
-			// const params = queryString.parse(this.props.match.params.query);
 			const params = {
 				name,
 				searchBy,
@@ -68,12 +65,10 @@ class Search extends React.Component<SearchProps, SearchState> {
 	}
 
 	handleChange = (e) => {
-		// this.props.handleChange();
 		this.setState({ searchValue: e.target.value });
 	}
 
 	handleSubmit = (e) => {
-		// this.props.handleChange();
 		e.preventDefault();
 
 		const params = {
@@ -87,10 +82,6 @@ class Search extends React.Component<SearchProps, SearchState> {
 		this.props.getMovies(params);
 		this.updateQueryString(params);
 
-		// this.setState({
-		// 	filteredMovies,
-		// 	submitHandled: true
-		//   	});
 		return false;
 	}
 

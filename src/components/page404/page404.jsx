@@ -1,14 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 // import { Link } from "react-router-dom";
-import Link from 'next/link';
+import { Container } from 'react-bootstrap';
 
 function Page404() {
 	return (
-		<React.Fragment>
+		<Container fluid>
 			<h1>404 Error</h1>
-			<Link to="/" href="/"><a>Main Page</a></Link>
-		</React.Fragment>
+			<a href="/">Main Page</a>
+		</Container>
 	);
 }
 
