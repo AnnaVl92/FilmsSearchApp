@@ -1,4 +1,4 @@
-# FilmsSearchApp
+# MoviesSearchApp
 
 Install with npm install
 
